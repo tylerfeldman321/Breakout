@@ -3,8 +3,10 @@ package breakout;
 import javafx.geometry.Point2D;
 import javafx.scene.shape.Shape;
 
-// https://gamedevelopment.tutsplus.com/tutorials/introduction-to-javafx-for-game-development--cms-23835
-
+/**
+ * @author Tyler Feldman
+ * Inspiration taken from https://gamedevelopment.tutsplus.com/tutorials/introduction-to-javafx-for-game-development--cms-23835
+ */
 public class Sprite
 {
     private Shape shape;
