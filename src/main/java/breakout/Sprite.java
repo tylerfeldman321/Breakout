@@ -31,6 +31,10 @@ public class Sprite
         this.shape.setTranslateY(position.getY());
     }
 
+    public Point2D getPosition() {
+        return this.position;
+    }
+
     public void setVelocity(Point2D velocity)
     {
         this.velocity = velocity;
