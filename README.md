@@ -9,7 +9,7 @@ This project implements the game of Breakout.
 
 ### Timeline
 
-Start Date: 
+Start Date: 9/1/2022
 
 Finish Date: 
 
