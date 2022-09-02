@@ -9,7 +9,7 @@ import javafx.scene.shape.Shape;
  * @author Tyler Feldman
  * Inspiration taken from https://gamedevelopment.tutsplus.com/tutorials/introduction-to-javafx-for-game-development--cms-23835
  */
-public class Sprite
+public abstract class Sprite
 {
     private ImageView image;
     private Shape shape;
@@ -61,6 +61,12 @@ public class Sprite
     public Shape getShape()
     {
         return shape;
+    }
+
+    public abstract void handleCollisionWith(Sprite sprite, SpriteManager spriteManager);
+
+    public void handleDeath(SpriteManager spriteManager) {
+        spriteManager.removeSprite(this);
     }
 
     public void bounceX() {
