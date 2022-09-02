@@ -65,6 +65,8 @@ public abstract class Sprite
 
     public abstract void handleCollisionWith(Sprite sprite, SpriteManager spriteManager);
 
+    public abstract Rectangle getBoundingBoxRect();
+
     public void handleDeath(SpriteManager spriteManager) {
         spriteManager.removeSprite(this);
     }
