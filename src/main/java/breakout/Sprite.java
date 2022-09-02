@@ -61,4 +61,8 @@ public class Sprite
     }
 
     public Bounds getBounds() { return bounds; }
+
+    public void setBounds(Bounds bounds) {
+        this.bounds = bounds;
+    }
 }
