@@ -4,9 +4,9 @@ import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 
 public class Player extends Paddle {
-    private float playerSpeed;
+    private double playerSpeed;
 
-    public Player(int width, int height, Point2D position, Color color, float speed) {
+    public Player(int width, int height, Point2D position, Color color, double speed) {
         super(width, height, position, color);
         playerSpeed = speed;
     }
@@ -19,7 +19,7 @@ public class Player extends Paddle {
         moveX(playerSpeed);
     }
 
-    private void moveX(float distanceX) {
+    private void moveX(double distanceX) {
         Point2D newPosition = getPosition().add(distanceX, 0);
 
         // TODO: Check if the new position is too far left or right
