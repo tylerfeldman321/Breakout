@@ -1,5 +1,6 @@
 package breakout;
 
+import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Shape;
@@ -12,6 +13,7 @@ public class Sprite
 {
     private ImageView image;
     private Shape shape;
+    private Bounds bounds;
     private Point2D position;
     private Point2D velocity;
 
@@ -57,4 +59,6 @@ public class Sprite
     {
         return shape;
     }
+
+    public Bounds getBounds() { return bounds; }
 }
