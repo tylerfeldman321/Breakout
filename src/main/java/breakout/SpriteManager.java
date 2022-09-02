@@ -1,5 +1,6 @@
 package breakout;
 
+import javafx.scene.Group;
 import javafx.scene.shape.Shape;
 
 import java.util.ArrayList;
@@ -9,6 +10,12 @@ public class SpriteManager {
     private List<Sprite> sprites = new ArrayList<>();
     private List<Projectile> projectiles = new ArrayList<>();
 
+    private Group rootNode;
+
+    public SpriteManager(Group rootNode) {
+        this.rootNode = rootNode;
+    }
+
     public void updateSprites(double elapsedTime) {
         for (Sprite sprite : sprites) {
             sprite.update(elapsedTime);
@@ -16,6 +23,11 @@ public class SpriteManager {
     }
 
     public void addSprite(Sprite sprite) {
+        addToSpriteLists(sprite);
+        rootNode.getChildren().add(sprite.getShape());
+    }
+
+    public void addToSpriteLists(Sprite sprite) {
         sprites.add(sprite);
         if (sprite instanceof Projectile) {
             projectiles.add((Projectile) sprite);

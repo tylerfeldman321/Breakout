@@ -53,24 +53,21 @@ public class Main extends Application
     }
 
     public Scene setupGame(int width, int height, Paint background) {
-        spriteManager = new SpriteManager();
-
         myRootNode = new Group();
+
+        spriteManager = new SpriteManager(myRootNode);
 
         myScene = new Scene(myRootNode, width, height, background);
         myScene.setOnKeyPressed(e -> handleKeyInput(e.getCode()));
 
         Point2D paddleStartingPosition = new Point2D(myScene.getWidth()/2, myScene.getHeight()/2);
         myPlayer = new Player(PADDLE_WIDTH, PADDLE_HEIGHT, paddleStartingPosition, Color.BLACK, 10);
-        addSprite(myPlayer);
+        spriteManager.addSprite(myPlayer);
 
         return myScene;
     }
 
-    public void addSprite(Sprite sprite) {
-        spriteManager.addSprite(sprite);
-        myRootNode.getChildren().add(sprite.getShape());
-    }
+
 
     private void step(double elapsedTime) {
         spriteManager.updateSprites(elapsedTime);
