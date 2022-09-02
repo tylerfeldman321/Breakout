@@ -62,4 +62,14 @@ public class Sprite
     {
         return shape;
     }
+
+    public void bounceX() {
+        Point2D newVelocity = new Point2D(-this.getVelocity().getX(), this.getVelocity().getY());
+        this.setVelocity(newVelocity);
+    }
+
+    public void bounceY() {
+        Point2D newVelocity = new Point2D(this.getVelocity().getX(), -this.getVelocity().getY());
+        this.setVelocity(newVelocity);
+    }
 }
