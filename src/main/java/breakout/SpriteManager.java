@@ -30,14 +30,18 @@ public class SpriteManager {
 
     public void addSprite(Sprite sprite) {
         addSpriteToRootNode(sprite);
-        sprites.add(sprite);
-        if (sprite instanceof Projectile) {
-            projectiles.add((Projectile) sprite);
-        }
+        addSpriteToSpriteManagerLists(sprite);
     }
 
     public void addSpriteToRootNode(Sprite sprite) {
         rootNode.getChildren().add(sprite.getShape());
+    }
+
+    public void addSpriteToSpriteManagerLists(Sprite sprite) {
+        sprites.add(sprite);
+        if (sprite instanceof Projectile) {
+            projectiles.add((Projectile) sprite);
+        }
     }
 
     public void removeSprites(List<Sprite> sprites) {
@@ -48,14 +52,18 @@ public class SpriteManager {
 
     public void removeSprite(Sprite sprite) {
         removeSpriteFromRootNode(sprite);
-        sprites.remove(sprite);
-        if (sprite instanceof Projectile) {
-            projectiles.remove((Projectile) sprite);
-        }
+        removeSpriteFromSpriteManagerLists(sprite);
     }
 
     public void removeSpriteFromRootNode(Sprite sprite) {
         rootNode.getChildren().remove(sprite.getShape());
+    }
+
+    public void removeSpriteFromSpriteManagerLists(Sprite sprite) {
+        sprites.remove(sprite);
+        if (sprite instanceof Projectile) {
+            projectiles.remove((Projectile) sprite);
+        }
     }
 
     protected void checkCollisions() {
