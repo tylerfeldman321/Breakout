@@ -17,4 +17,8 @@ public class Paddle extends Sprite {
         paddleRect.setArcWidth(5);
         paddleRect.setArcHeight(5);
     }
+
+    public void handleCollisionWith(Sprite sprite, SpriteManager spriteManager) {
+        return;
+    }
 }

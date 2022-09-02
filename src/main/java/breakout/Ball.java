@@ -11,4 +11,8 @@ public class Ball extends Projectile {
                 position,
                 velocity);
     }
+
+    public void handleCollisionWith(Sprite sprite, SpriteManager spriteManager) {
+        return;
+    }
 }

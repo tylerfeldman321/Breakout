@@ -10,4 +10,8 @@ public class Block extends Sprite {
                 position,
                 new Point2D(0, 0));
     }
+
+    public void handleCollisionWith(Sprite sprite, SpriteManager spriteManager) {
+        this.handleDeath(spriteManager);
+    }
 }
