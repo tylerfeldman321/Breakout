@@ -3,6 +3,8 @@ package breakout;
 import javafx.geometry.BoundingBox;
 import javafx.geometry.Point2D;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
 /**
@@ -62,6 +64,17 @@ public class Sprite
     }
 
     public BoundingBox getBounds() { return boundingBox; }
+
+    public Rectangle getBoundingBoxRect() {
+        Rectangle boundingBoxRect = new Rectangle(
+                getBounds().getMinX(),
+                getBounds().getMinY(),
+                getBounds().getWidth(),
+                getBounds().getHeight()
+        );
+        boundingBoxRect.setFill(new Color(0.5,0.5,0.5,0.5));
+        return boundingBoxRect;
+    }
 
     public void setBounds(BoundingBox boundingBox) {
         this.boundingBox = boundingBox;
