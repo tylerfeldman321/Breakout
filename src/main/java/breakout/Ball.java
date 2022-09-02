@@ -16,11 +16,11 @@ public class Ball extends Projectile {
         Rectangle ballBBoxRect = getBoundingBoxRect();
         Rectangle collidingBBoxRect = sprite.getBoundingBoxRect();
 
-        double intersectionUpper = Math.max(collidingBBoxRect.getY(), ballBBoxRect.getY());
-        double intersectionLower = Math.min(collidingBBoxRect.getY()+collidingBBoxRect.getHeight(),
+        double intersectionUpper = Math.min(collidingBBoxRect.getTranslateY(), ballBBoxRect.getTranslateY());
+        double intersectionLower = Math.max(collidingBBoxRect.getTranslateY()+collidingBBoxRect.getHeight(),
                 ballBBoxRect.getTranslateY()+collidingBBoxRect.getHeight());
-        double intersectionLeft = Math.max(collidingBBoxRect.getX(), ballBBoxRect.getX());
-        double intersectionRight = Math.min(collidingBBoxRect.getX()+collidingBBoxRect.getWidth(),
+        double intersectionLeft = Math.max(collidingBBoxRect.getTranslateX(), ballBBoxRect.getTranslateX());
+        double intersectionRight = Math.min(collidingBBoxRect.getTranslateX()+collidingBBoxRect.getWidth(),
                 ballBBoxRect.getTranslateX()+collidingBBoxRect.getWidth());
         double intersectionHeight = intersectionLower - intersectionUpper;
         double intersectionWidth = intersectionRight - intersectionLeft;
@@ -34,6 +34,9 @@ public class Ball extends Projectile {
 
     public Rectangle getBoundingBoxRect() {
         double radius = ((Circle)this.getShape()).getRadius();
-        return new Rectangle(getPosition().getX()-radius, getPosition().getY()-radius, radius*2, radius*2);
+        Rectangle bboxRect = new Rectangle(radius*2, radius*2);
+        bboxRect.setTranslateX(getPosition().getX()-radius);
+        bboxRect.setTranslateY(getPosition().getY()-radius);
+        return bboxRect;
     }
 }
