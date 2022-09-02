@@ -13,7 +13,23 @@ public class Ball extends Projectile {
     }
 
     public void handleCollisionWith(Sprite sprite, SpriteManager spriteManager) {
-        return;
+        Rectangle ballBBoxRect = getBoundingBoxRect();
+        Rectangle collidingBBoxRect = sprite.getBoundingBoxRect();
+
+        double intersectionUpper = Math.max(collidingBBoxRect.getY(), ballBBoxRect.getY());
+        double intersectionLower = Math.min(collidingBBoxRect.getY()+collidingBBoxRect.getHeight(),
+                ballBBoxRect.getTranslateY()+collidingBBoxRect.getHeight());
+        double intersectionLeft = Math.max(collidingBBoxRect.getX(), ballBBoxRect.getX());
+        double intersectionRight = Math.min(collidingBBoxRect.getX()+collidingBBoxRect.getWidth(),
+                ballBBoxRect.getTranslateX()+collidingBBoxRect.getWidth());
+        double intersectionHeight = intersectionLower - intersectionUpper;
+        double intersectionWidth = intersectionRight - intersectionLeft;
+
+        if (intersectionHeight > intersectionWidth) {
+            this.bounceX();
+        } else {
+            this.bounceY();
+        }
     }
 
     public Rectangle getBoundingBoxRect() {
