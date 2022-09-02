@@ -31,9 +31,10 @@ public class SpriteManager {
     protected void checkCollisions() {
         Projectile projectile;
         Sprite sprite;
+
         for (int i = 0; i < projectiles.size(); i++) {
             projectile = projectiles.get(i);
-            for (int j = i + 1; j < sprites.size(); j++) {
+            for (int j = 0; j < sprites.size(); j++) {
                 sprite = sprites.get(j);
                 if (handleCollision(sprite, projectile)) {
                     break;
