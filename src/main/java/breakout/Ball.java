@@ -6,10 +6,12 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 public class Ball extends Projectile {
+    private double radius;
     public Ball(double radius, Point2D position, Point2D velocity, Color color) {
         super(new Circle(radius, color),
                 position,
                 velocity);
+        this.radius = radius;
     }
 
     public void handleCollisionWith(Sprite sprite, SpriteManager spriteManager) {
