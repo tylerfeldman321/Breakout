@@ -25,4 +25,22 @@ public class SpriteManager {
             addSprite(sprite);
         }
     }
+
+    protected void checkCollisions() {
+        Projectile projectile;
+        Sprite sprite;
+        for (int i = 0; i < projectiles.size(); i++) {
+            projectile = projectiles.get(i);
+            for (int j = i + 1; j < sprites.size(); j++) {
+                sprite = sprites.get(j);
+                if (handleCollision(sprite, projectile)) {
+                    break;
+                }
+            }
+        }
+    }
+
+    public boolean handleCollision(Sprite sprite, Projectile projectile) {
+        return false;
+    }
 }
