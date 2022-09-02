@@ -23,11 +23,7 @@ public class SpriteManager {
     }
 
     public void addSprite(Sprite sprite) {
-        addToSpriteLists(sprite);
         rootNode.getChildren().add(sprite.getShape());
-    }
-
-    public void addToSpriteLists(Sprite sprite) {
         sprites.add(sprite);
         if (sprite instanceof Projectile) {
             projectiles.add((Projectile) sprite);
@@ -37,6 +33,20 @@ public class SpriteManager {
     public void addSprites(List<Sprite> sprites) {
         for (Sprite sprite : sprites) {
             addSprite(sprite);
+        }
+    }
+
+    public void removeSprite(Sprite sprite) {
+        rootNode.getChildren().remove(sprite);
+        sprites.remove(sprite);
+        if (sprite instanceof Projectile) {
+            projectiles.remove((Projectile) sprite);
+        }
+    }
+
+    public void removeSprites(List<Sprite> sprites) {
+        for (Sprite sprite : sprites) {
+            removeSprite(sprite);
         }
     }
 
