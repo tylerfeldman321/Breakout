@@ -29,7 +29,7 @@ public class Main extends Application
     public static final int PADDLE_HEIGHT = 5;
 
     private Scene myScene;
-    private Group myRootNode;
+    private Group rootNode;
     private SpriteManager spriteManager;
     private Player myPlayer;
 
@@ -53,11 +53,11 @@ public class Main extends Application
     }
 
     public Scene setupGame(int width, int height, Paint background) {
-        myRootNode = new Group();
+        rootNode = new Group();
 
-        spriteManager = new SpriteManager(myRootNode);
+        spriteManager = new SpriteManager(rootNode);
 
-        myScene = new Scene(myRootNode, width, height, background);
+        myScene = new Scene(rootNode, width, height, background);
         myScene.setOnKeyPressed(e -> handleKeyInput(e.getCode()));
 
         Point2D paddleStartingPosition = new Point2D(myScene.getWidth()/2, myScene.getHeight()/2);
