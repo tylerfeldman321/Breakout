@@ -74,6 +74,7 @@ public class Main extends Application
 
     private void step(double elapsedTime) {
         spriteManager.updateSprites(elapsedTime);
+        spriteManager.checkCollisions();
     }
 
     private void handleKeyInput (KeyCode code) {
