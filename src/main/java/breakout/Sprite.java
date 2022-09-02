@@ -50,6 +50,12 @@ public abstract class Sprite
         this.velocity = velocity;
     }
 
+    public void setVelocity(double angle, double speed) {
+        double velocityX = speed * Math.cos(angle);
+        double velocityY = speed * Math.sin(angle);
+        setVelocity(new Point2D(velocityX, velocityY));
+    }
+
     public Point2D getVelocity() { return this.velocity; }
 
     public void update(double time)
