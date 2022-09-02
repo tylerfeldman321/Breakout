@@ -7,7 +7,6 @@ import javafx.scene.shape.Rectangle;
 public class Paddle extends Sprite {
     public Paddle(int width, int height, Point2D position, Color color) {
         super(new Rectangle(width, height, color),
-                new Rectangle(position.getX(), position.getY(), width, height),
                 position,
                 new Point2D(0, 0));
         setRoundedPaddleCorners();
