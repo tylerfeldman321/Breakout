@@ -17,7 +17,7 @@ public class Sprite
     private Point2D position;
     private Point2D velocity;
 
-    public Sprite(Shape shape, Point2D position, Point2D velocity)
+    public Sprite(Shape shape, Bounds bounds, Point2D position, Point2D velocity)
     {
         image = null;
         this.shape = shape;
