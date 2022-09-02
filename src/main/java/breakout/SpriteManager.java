@@ -37,7 +37,7 @@ public class SpriteManager {
     }
 
     public void removeSprite(Sprite sprite) {
-        rootNode.getChildren().remove(sprite);
+        rootNode.getChildren().remove(sprite.getShape());
         sprites.remove(sprite);
         if (sprite instanceof Projectile) {
             projectiles.remove((Projectile) sprite);
