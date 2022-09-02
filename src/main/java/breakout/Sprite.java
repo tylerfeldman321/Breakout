@@ -1,6 +1,6 @@
 package breakout;
 
-import javafx.geometry.Bounds;
+import javafx.geometry.BoundingBox;
 import javafx.geometry.Point2D;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Shape;
@@ -13,14 +13,15 @@ public class Sprite
 {
     private ImageView image;
     private Shape shape;
-    private Bounds bounds;
+    private BoundingBox boundingBox;
     private Point2D position;
     private Point2D velocity;
 
-    public Sprite(Shape shape, Bounds bounds, Point2D position, Point2D velocity)
+    public Sprite(Shape shape, BoundingBox boundingBox, Point2D position, Point2D velocity)
     {
         image = null;
         this.shape = shape;
+        this.boundingBox = boundingBox;
         setPosition(position);
         this.velocity = velocity;
     }
@@ -60,9 +61,9 @@ public class Sprite
         return shape;
     }
 
-    public Bounds getBounds() { return bounds; }
+    public BoundingBox getBounds() { return boundingBox; }
 
-    public void setBounds(Bounds bounds) {
-        this.bounds = bounds;
+    public void setBounds(BoundingBox boundingBox) {
+        this.boundingBox = boundingBox;
     }
 }
