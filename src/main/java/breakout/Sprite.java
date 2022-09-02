@@ -1,6 +1,7 @@
 package breakout;
 
 import javafx.geometry.Point2D;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Shape;
 
 /**
@@ -9,12 +10,14 @@ import javafx.scene.shape.Shape;
  */
 public class Sprite
 {
+    private ImageView image;
     private Shape shape;
     private Point2D position;
     private Point2D velocity;
 
     public Sprite(Shape shape, Point2D position, Point2D velocity)
     {
+        image = null;
         this.shape = shape;
         setPosition(position);
         this.velocity = velocity;
@@ -41,6 +44,8 @@ public class Sprite
     {
         this.velocity = velocity;
     }
+
+    public Point2D getVelocity() { return this.velocity; }
 
     public void update(double time)
     {
