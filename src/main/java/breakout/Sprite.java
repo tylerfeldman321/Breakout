@@ -39,7 +39,6 @@ public class Sprite
         this.position = position;
         this.shape.setTranslateX(position.getX());
         this.shape.setTranslateY(position.getY());
-        this.boundingBox.
     }
 
     public Point2D getPosition() {
