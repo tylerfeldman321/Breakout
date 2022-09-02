@@ -1,14 +1,14 @@
 package breakout;
 
-import javafx.geometry.BoundingBox;
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 
 public class Ball extends Projectile {
     public Ball(double radius, Point2D position, Color color) {
         super(new Circle(radius, color),
-                new BoundingBox(position.getX()-radius,position.getY()-radius,2*radius,2*radius),
+                new Rectangle(position.getX()-radius,position.getY()-radius,2*radius,2*radius),
                 position,
                 new Point2D(0, 0));
     }

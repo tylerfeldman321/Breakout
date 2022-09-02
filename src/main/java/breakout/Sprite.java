@@ -15,11 +15,11 @@ public class Sprite
 {
     private ImageView image;
     private Shape shape;
-    private BoundingBox boundingBox;
+    private Rectangle boundingBox;
     private Point2D position;
     private Point2D velocity;
 
-    public Sprite(Shape shape, BoundingBox boundingBox, Point2D position, Point2D velocity)
+    public Sprite(Shape shape, Rectangle boundingBox, Point2D position, Point2D velocity)
     {
         image = null;
         this.shape = shape;
@@ -39,6 +39,7 @@ public class Sprite
         this.position = position;
         this.shape.setTranslateX(position.getX());
         this.shape.setTranslateY(position.getY());
+        this.boundingBox.
     }
 
     public Point2D getPosition() {
@@ -63,20 +64,9 @@ public class Sprite
         return shape;
     }
 
-    public BoundingBox getBounds() { return boundingBox; }
+    public Rectangle getBounds() { return boundingBox; }
 
-    public Rectangle getBoundingBoxRect() {
-        Rectangle boundingBoxRect = new Rectangle(
-                getBounds().getMinX(),
-                getBounds().getMinY(),
-                getBounds().getWidth(),
-                getBounds().getHeight()
-        );
-        boundingBoxRect.setFill(new Color(0.5,0.5,0.5,0.5));
-        return boundingBoxRect;
-    }
-
-    public void setBounds(BoundingBox boundingBox) {
+    public void setBounds(Rectangle boundingBox) {
         this.boundingBox = boundingBox;
     }
 }
