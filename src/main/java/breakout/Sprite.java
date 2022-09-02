@@ -24,7 +24,7 @@ public class Sprite
         image = null;
         this.shape = shape;
         this.boundingBox = boundingBox;
-        setPosition(position);
+        setAllPositions(position);
         this.velocity = velocity;
     }
 
@@ -37,8 +37,14 @@ public class Sprite
     public void setPosition(Point2D position)
     {
         this.position = position;
+    }
+
+    public void setAllPositions(Point2D position) {
+        this.position = position;
         this.shape.setTranslateX(position.getX());
         this.shape.setTranslateY(position.getY());
+        this.boundingBox.setX(position.getX());
+        this.boundingBox.setY(position.getY());
     }
 
     public Point2D getPosition() {
@@ -55,7 +61,7 @@ public class Sprite
     public void update(double time)
     {
         Point2D displacement = new Point2D(velocity.getX() * time, velocity.getY() * time);
-        setPosition(position.add(displacement));
+        setAllPositions(position.add(displacement));
     }
 
     public Shape getShape()
