@@ -15,4 +15,9 @@ public class Ball extends Projectile {
     public void handleCollisionWith(Sprite sprite, SpriteManager spriteManager) {
         return;
     }
+
+    public Rectangle getBoundingBoxRect() {
+        double radius = ((Circle)this.getShape()).getRadius();
+        return new Rectangle(getPosition().getX()-radius, getPosition().getY()-radius, radius*2, radius*2);
+    }
 }

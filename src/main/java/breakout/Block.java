@@ -14,4 +14,8 @@ public class Block extends Sprite {
     public void handleCollisionWith(Sprite sprite, SpriteManager spriteManager) {
         this.handleDeath(spriteManager);
     }
+
+    public Rectangle getBoundingBoxRect() {
+        return (Rectangle) this.getShape();
+    }
 }

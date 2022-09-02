@@ -21,4 +21,8 @@ public class Paddle extends Sprite {
     public void handleCollisionWith(Sprite sprite, SpriteManager spriteManager) {
         return;
     }
+
+    public Rectangle getBoundingBoxRect() {
+        return (Rectangle) this.getShape();
+    }
 }
