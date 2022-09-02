@@ -1,5 +1,7 @@
 package breakout;
 
+import javafx.scene.shape.Shape;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +43,20 @@ public class SpriteManager {
     }
 
     public boolean handleCollision(Sprite sprite, Projectile projectile) {
+        if (sprite == projectile) {
+            return false;
+        }
+
+        if (isIntersecting(sprite, projectile)) {
+            // projectile.handleCollisionWith(sprite);
+            // sprite.handleCollisionWith(projectile);
+            return true;
+        }
         return false;
+    }
+
+    public boolean isIntersecting(Sprite spriteA, Sprite spriteB) {
+        Shape intersection = Shape.intersect(spriteA.getShape(), spriteB.getShape());
+        return (intersection.getBoundsInLocal().getWidth() != -1);  // From example_animation
     }
 }
