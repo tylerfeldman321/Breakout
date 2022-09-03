@@ -63,7 +63,7 @@ public class Main extends Application
         Point2D paddleStartingPosition = new Point2D(myScene.getWidth()/2, myScene.getHeight()-PADDLE_HEIGHT-30);
         myPlayer = new Player(PADDLE_WIDTH, PADDLE_HEIGHT, paddleStartingPosition, Color.BLACK, 3.5);
         spriteManager.addSprite(myPlayer);
-        
+
         LevelGenerator levelGenerator = new LevelGenerator(spriteManager);
         levelGenerator.generateFullLevel(10, 10, 10, 1.5, 1.5);
 
@@ -86,7 +86,7 @@ public class Main extends Application
         }
 
         if (code == KeyCode.SPACE) {
-            Ball ball = new Ball(5, new Point2D(200, 0), new Point2D(0, 100), Color.BLACK);
+            Ball ball = new Ball(5, new Point2D(200, myScene.getHeight()-50), new Point2D(0, -100), Color.BLACK);
             spriteManager.addSprite(ball);
         }
     }
