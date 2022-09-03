@@ -65,6 +65,10 @@ public abstract class Sprite
 
     public void update(double time)
     {
+        updatePosition(time);
+    }
+
+    private void updatePosition(double time) {
         Point2D displacement = new Point2D(velocity.getX() * time, velocity.getY() * time);
         setAllPositions(position.add(displacement));
     }
