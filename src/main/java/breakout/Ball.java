@@ -32,6 +32,18 @@ public class Ball extends Projectile {
         } else {
             this.bounceY();
         }
+
+        if (sprite instanceof Paddle) {
+            double centerXBall = ballBBoxRect.getTranslateX() + radius;
+
+            double differenceInXPositions = centerXBall - collidingBBoxRect.getTranslateX();
+            double proportionalLocationAlongPaddle = differenceInXPositions / collidingBBoxRect.getWidth();
+            double proportionalLocationAlongPaddleClamped = Math.max(0, Math.min(1, proportionalLocationAlongPaddle));
+
+            double angle = 30 + ((1-proportionalLocationAlongPaddleClamped) * 120);
+
+            this.setVelocity(angle, this.getSpeed());
+        }
     }
 
     public Rectangle getBoundingBoxRect() {
