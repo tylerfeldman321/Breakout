@@ -22,7 +22,7 @@ public class Main extends Application
     public static final float ballSpeed = 10;
     public static final int FRAMES_PER_SECOND = 60;
     public static final double SECOND_DELAY = 1.0 / FRAMES_PER_SECOND;
-    public static final int SIZE = 400;
+    public static final double SIZE = 400;
     public static final String TITLE = "Breakout";
     public static final Paint BACKGROUND = Color.AZURE;
     public static final int PADDLE_WIDTH = 40;
@@ -52,7 +52,7 @@ public class Main extends Application
         animation.play();
     }
 
-    public Scene setupGame(int width, int height, Paint background) {
+    public Scene setupGame(double width, double height, Paint background) {
         rootNode = new Group();
 
         spriteManager = new SpriteManager(rootNode);
