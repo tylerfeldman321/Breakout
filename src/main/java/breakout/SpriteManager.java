@@ -33,7 +33,7 @@ public class SpriteManager {
     public void addSprites(Sprite... sprites) {
         addSprites(Arrays.asList(sprites));
     }
-    
+
     public void addSprite(Sprite sprite) {
         addSpriteToRootNode(sprite);
         addSpriteToSpriteManagerLists(sprite);
@@ -57,6 +57,10 @@ public class SpriteManager {
         for (Sprite sprite : sprites) {
             removeSprite(sprite);
         }
+    }
+
+    public void removeSprites(Sprite... sprites) {
+        removeSprites(Arrays.asList(sprites));
     }
 
     public void removeSprite(Sprite sprite) {
