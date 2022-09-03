@@ -26,8 +26,14 @@ public class Player extends Paddle {
     private void moveX(double distanceX) {
         Point2D newPosition = getPosition().add(distanceX, 0);
 
-        // TODO: Check if the new position is too far left or right
-
-        setPosition(newPosition);
+        if (newPosition.getX() < xMin) {
+            this.setPositionX(xMin);
+        }
+        else if (newPosition.getX() + this.getWidth() > xMax) {
+            this.setPositionX(xMax - this.getWidth());
+        }
+        else {
+            setPosition(newPosition);
+        }
     }
 }
