@@ -9,11 +9,16 @@ public class Paddle extends Sprite {
     public static final double ANGLE_MAX = 150;
     public static final double ANGLE_RANGE = ANGLE_MAX - ANGLE_MIN;
 
+    private double width;
+    private double height;
+
     public Paddle(int width, int height, Point2D position, Color color) {
         super(new Rectangle(width, height, color),
                 position,
                 new Point2D(0, 0));
         setRoundedPaddleCorners();
+        this.width = width;
+        this.height = height;
     }
 
     private void setRoundedPaddleCorners() {
@@ -28,5 +33,13 @@ public class Paddle extends Sprite {
 
     public Rectangle getBoundingBoxRect() {
         return (Rectangle) this.getShape();
+    }
+
+    public double getWidth() {
+        return this.width;
+    }
+
+    public double getHeight() {
+        return this.height;
     }
 }
