@@ -60,7 +60,7 @@ public class Main extends Application
         myScene = new Scene(rootNode, width, height, background);
         myScene.setOnKeyPressed(e -> handleKeyInput(e.getCode()));
 
-        Point2D paddleStartingPosition = new Point2D(myScene.getWidth()/2, myScene.getHeight()/2);
+        Point2D paddleStartingPosition = new Point2D(myScene.getWidth()/2, myScene.getHeight()-PADDLE_HEIGHT-30);
         myPlayer = new Player(PADDLE_WIDTH, PADDLE_HEIGHT, paddleStartingPosition, Color.BLACK, 3.5);
         spriteManager.addSprite(myPlayer);
 
