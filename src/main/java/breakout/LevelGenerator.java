@@ -22,12 +22,7 @@ public class LevelGenerator {
         double positionX, positionY;
         Color blockColor;
 
-        Wall wallLeft = new Wall(wallWidth, scene.getHeight(),
-                new Point2D(0, 0), Color.BLACK);
-        Wall wallRight = new Wall(wallWidth, scene.getHeight(),
-                new Point2D(scene.getWidth()-wallWidth, 0), Color.BLACK);
-        Wall wallTop = new Wall(scene.getWidth(), wallWidth, new Point2D(0,0), Color.BLACK);
-        spriteManager.addSprites(wallTop, wallLeft, wallRight);
+        generateOuterWalls(wallWidth);
 
         for (int row = 0; row < numRows; row++) {
             positionY = row * blockCellHeight + verticalBlockSpacing/2 + wallWidth + emptySpaceHeight;
@@ -39,6 +34,15 @@ public class LevelGenerator {
                 spriteManager.addSprite(block);
             }
         }
+    }
+
+    public void generateOuterWalls(double wallWidth) {
+        Wall wallLeft = new Wall(wallWidth, scene.getHeight(),
+                new Point2D(0, 0), Color.BLACK);
+        Wall wallRight = new Wall(wallWidth, scene.getHeight(),
+                new Point2D(scene.getWidth()-wallWidth, 0), Color.BLACK);
+        Wall wallTop = new Wall(scene.getWidth(), wallWidth, new Point2D(0,0), Color.BLACK);
+        spriteManager.addSprites(wallTop, wallLeft, wallRight);
     }
 
     public void loadFromFile() {
