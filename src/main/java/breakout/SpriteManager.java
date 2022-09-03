@@ -4,6 +4,7 @@ import javafx.scene.Group;
 import javafx.scene.shape.Shape;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SpriteManager {
@@ -29,6 +30,10 @@ public class SpriteManager {
         }
     }
 
+    public void addSprites(Sprite... sprites) {
+        addSprites(Arrays.asList(sprites));
+    }
+    
     public void addSprite(Sprite sprite) {
         addSpriteToRootNode(sprite);
         addSpriteToSpriteManagerLists(sprite);
