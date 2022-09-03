@@ -9,6 +9,7 @@ import java.util.List;
 public class SpriteManager {
     private List<Sprite> sprites = new ArrayList<>();
     private List<Projectile> projectiles = new ArrayList<>();
+    private List<Block> blocks = new ArrayList<>();
 
     private Group rootNode;
 
@@ -42,6 +43,9 @@ public class SpriteManager {
         if (sprite instanceof Projectile) {
             projectiles.add((Projectile) sprite);
         }
+        else if (sprite instanceof Block) {
+            blocks.add((Block) sprite);
+        }
     }
 
     public void removeSprites(List<Sprite> sprites) {
@@ -63,6 +67,9 @@ public class SpriteManager {
         sprites.remove(sprite);
         if (sprite instanceof Projectile) {
             projectiles.remove((Projectile) sprite);
+        }
+        else if (sprite instanceof Block) {
+            blocks.remove((Block) sprite);
         }
     }
 
