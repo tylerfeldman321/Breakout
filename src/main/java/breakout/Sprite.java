@@ -35,6 +35,18 @@ public abstract class Sprite
         this.position = position;
     }
 
+    public void setPosition(double x, double y) {
+        this.position = new Point2D(x, y);
+    }
+
+    public void setPositionX(double x) {
+        this.position = new Point2D(x, this.position.getY());
+    }
+
+    public void setPositionY(double y) {
+        this.position = new Point2D(this.position.getX(), y);
+    }
+
     public void setAllPositions(Point2D position) {
         this.position = position;
         this.shape.setTranslateX(position.getX());
