@@ -5,6 +5,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Paddle extends Sprite {
+    public static final double ANGLE_MIN = 30;
+    public static final double ANGLE_MAX = 150;
+    public static final double ANGLE_RANGE = ANGLE_MAX - ANGLE_MIN;
+
     public Paddle(int width, int height, Point2D position, Color color) {
         super(new Rectangle(width, height, color),
                 position,

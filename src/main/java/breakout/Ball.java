@@ -40,7 +40,7 @@ public class Ball extends Projectile {
             double proportionalLocationAlongPaddle = differenceInXPositions / collidingBBoxRect.getWidth();
             double proportionalLocationAlongPaddleClamped = Math.max(0, Math.min(1, proportionalLocationAlongPaddle));
 
-            double angle = 30 + ((1-proportionalLocationAlongPaddleClamped) * 120);
+            double angle = Paddle.ANGLE_MIN + ((1-proportionalLocationAlongPaddleClamped) * Paddle.ANGLE_RANGE);
 
             this.setVelocity(angle, this.getSpeed());
         }
