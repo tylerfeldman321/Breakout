@@ -61,7 +61,7 @@ public class Main extends Application
         myScene.setOnKeyPressed(e -> handleKeyInput(e.getCode()));
 
         Point2D paddleStartingPosition = new Point2D(myScene.getWidth()/2, myScene.getHeight()/2);
-        myPlayer = new Player(PADDLE_WIDTH, PADDLE_HEIGHT, paddleStartingPosition, Color.BLACK, 10);
+        myPlayer = new Player(PADDLE_WIDTH, PADDLE_HEIGHT, paddleStartingPosition, Color.BLACK, 3.5);
         spriteManager.addSprite(myPlayer);
 
         return myScene;
@@ -80,6 +80,11 @@ public class Main extends Application
         }
         else if (code == KeyCode.LEFT) {
             myPlayer.moveLeft();
+        }
+
+        if (code == KeyCode.SPACE) {
+            Ball ball = new Ball(5, new Point2D(200, 0), new Point2D(0, 100), Color.BLACK);
+            spriteManager.addSprite(ball);
         }
     }
 }
