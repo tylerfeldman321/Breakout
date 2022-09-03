@@ -13,7 +13,7 @@ public class LevelGenerator {
         this.scene = scene;
     }
 
-    public void generateFullLevel(int numColumns, int numRows, double blockHeight, double horizontalBlockSpacing, double verticalBlockSpacing, double wallWidth) {
+    public void generateFullLevel(int numColumns, int numRows, double blockHeight, double horizontalBlockSpacing, double verticalBlockSpacing, double wallWidth, double emptySpaceHeight) {
 
         double levelWidth = Main.SIZE - 2 * wallWidth;
         double blockCellWidth = levelWidth / numColumns;
@@ -30,7 +30,7 @@ public class LevelGenerator {
         spriteManager.addSprites(wallTop, wallLeft, wallRight);
 
         for (int row = 0; row < numRows; row++) {
-            positionY = row * blockCellHeight + verticalBlockSpacing/2 + wallWidth;
+            positionY = row * blockCellHeight + verticalBlockSpacing/2 + wallWidth + emptySpaceHeight;
             double redValue = (double) row / numRows;
             blockColor = new Color(redValue, 0.5, 0.5, 1.0);
             for (int col = 0; col < numColumns; col++) {

@@ -65,7 +65,7 @@ public class Main extends Application
         spriteManager.addSprite(myPlayer);
 
         LevelGenerator levelGenerator = new LevelGenerator(spriteManager, myScene);
-        levelGenerator.generateFullLevel(10, 10, 10, 1.5, 1.5, 10);
+        levelGenerator.generateFullLevel(10, 10, 10, 1.5, 1.5, 10, 50);
 
         return myScene;
     }
