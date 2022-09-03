@@ -5,10 +5,14 @@ import javafx.scene.paint.Color;
 
 public class Player extends Paddle {
     private double playerSpeed;
+    private double xMin;
+    private double xMax;
 
-    public Player(int width, int height, Point2D position, Color color, double speed) {
+    public Player(int width, int height, Point2D position, Color color, double speed, double xMin, double xMax) {
         super(width, height, position, color);
         playerSpeed = speed;
+        this.xMin = xMin;
+        this.xMax = xMax;
     }
 
     public void moveLeft() {
