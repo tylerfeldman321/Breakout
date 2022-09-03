@@ -64,8 +64,8 @@ public class Main extends Application
         myPlayer = new Player(PADDLE_WIDTH, PADDLE_HEIGHT, paddleStartingPosition, Color.BLACK, 3.5);
         spriteManager.addSprite(myPlayer);
 
-        LevelGenerator levelGenerator = new LevelGenerator(spriteManager);
-        levelGenerator.generateFullLevel(10, 10, 10, 1.5, 1.5);
+        LevelGenerator levelGenerator = new LevelGenerator(spriteManager, myScene);
+        levelGenerator.generateFullLevel(10, 10, 10, 1.5, 1.5, 10);
 
         return myScene;
     }
