@@ -4,6 +4,12 @@ import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+/**
+ * Paddle class is a Rectangle shaped Sprite. When a Ball object collides with a Paddle, it
+ * bounces off the Paddle at an angle based on where the Ball collides with the Paddle.
+ *
+ * @author Tyler Feldman
+ */
 public class Paddle extends Sprite {
 
   public static final double ANGLE_MIN = 30;
@@ -13,6 +19,13 @@ public class Paddle extends Sprite {
   private double width;
   private double height;
 
+  /**
+   * Constructor for Paddle.
+   * @param width Width of the Rectangle.
+   * @param height Height of the Rectangle.
+   * @param position Top left position of the Paddle.
+   * @param color Color for the fill of the Rectangle.
+   */
   public Paddle(int width, int height, Point2D position, Color color) {
     super(new Rectangle(width, height, color),
         position,
@@ -22,24 +35,44 @@ public class Paddle extends Sprite {
     this.height = height;
   }
 
+  /**
+   * Set the corners of the Paddle to be rounded.
+   */
   private void setRoundedPaddleCorners() {
     Rectangle paddleRect = (Rectangle) this.getShape();
     paddleRect.setArcWidth(5);
     paddleRect.setArcHeight(5);
   }
 
+  /**
+   * Handles collision with another Sprite.
+   * @param sprite Other sprite that is colliding with this Sprite.
+   * @param spriteManager SpriteManager object for the game.
+   */
   public void handleCollisionWith(Sprite sprite, SpriteManager spriteManager) {
     return;
   }
 
+  /**
+   * Get the Rectangle collision bounding box of the Paddle.
+   * @return The bounding box Rectangle for the Paddle.
+   */
   public Rectangle getBoundingBoxRect() {
     return (Rectangle) this.getShape();
   }
 
+  /**
+   * Get the width of the Paddle.
+   * @return double for the width of the Paddle.
+   */
   public double getWidth() {
     return this.width;
   }
 
+  /**
+   * Get the height of the Paddle.
+   * @return double for the height of the Paddle.
+   */
   public double getHeight() {
     return this.height;
   }
