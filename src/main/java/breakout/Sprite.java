@@ -90,9 +90,10 @@ public abstract class Sprite {
    */
   public void setAllPositions(Point2D position) {
     this.position = position;
-    this.shape.setTranslateX(position.getX());
-    this.shape.setTranslateY(position.getY());
+    setShapePosition(position);
   }
+
+  public abstract void setShapePosition(Point2D position);
 
   /**
    * Gets position.

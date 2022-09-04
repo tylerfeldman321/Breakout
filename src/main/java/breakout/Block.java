@@ -29,6 +29,18 @@ public class Block extends Sprite {
   }
 
   /**
+   * Set shape position for the Block's shape.
+   *
+   * @param position Point2D top left position of the Block.
+   */
+  @Override
+  public void setShapePosition(Point2D position) {
+    Rectangle rectangle = (Rectangle) this.getShape();
+    rectangle.setX(position.getX());
+    rectangle.setY(position.getY());
+  }
+
+  /**
    * Handles collision with another Sprite. This block is destroyed on collision.
    *
    * @param sprite           Other sprite that is colliding with this Sprite.

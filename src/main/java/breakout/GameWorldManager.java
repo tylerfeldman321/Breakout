@@ -215,11 +215,10 @@ public class GameWorldManager {
     }
 
     Ball ball = new Ball(BALL_RADIUS,
-        new Point2D(myPlayer.getPosition().getX() + myPlayer.getWidth() / 2,
-            myPlayer.getPosition().getY() - BALL_RADIUS),
+        new Point2D(myPlayer.getPosition().getX() + myPlayer.getWidth() / 2 - BALL_RADIUS,
+            myPlayer.getPosition().getY() - 2 * BALL_RADIUS),
         new Point2D(0, -BALL_SPEED),
         Color.BLACK);
     getSpriteManager().addSprite(ball);
   }
-
 }

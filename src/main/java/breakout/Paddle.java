@@ -37,6 +37,18 @@ public class Paddle extends Sprite {
   }
 
   /**
+   * Set position of the shape.
+   *
+   * @param position Point2D top left position of the Rectangle.
+   */
+  @Override
+  public void setShapePosition(Point2D position) {
+    Rectangle rectangle = (Rectangle) this.getShape();
+    rectangle.setX(position.getX());
+    rectangle.setY(position.getY());
+  }
+
+  /**
    * Set the corners of the Paddle to be rounded.
    */
   private void setRoundedPaddleCorners(double arcSize) {

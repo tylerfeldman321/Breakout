@@ -3,6 +3,7 @@ package breakout;
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.scene.shape.StrokeType;
 
 /**
@@ -26,6 +27,18 @@ public class Wall extends Sprite {
         new Point2D(0, 0));
     this.getShape().setStrokeType(StrokeType.INSIDE);
     this.getShape().setStroke(Color.BLACK);
+  }
+
+  /**
+   * Set the shape position for the Wall.
+   *
+   * @param position Point2D desired position of top left of the Wall.
+   */
+  @Override
+  public void setShapePosition(Point2D position) {
+    Rectangle rectangle = (Rectangle) this.getShape();
+    rectangle.setX(position.getX());
+    rectangle.setY(position.getY());
   }
 
   /**

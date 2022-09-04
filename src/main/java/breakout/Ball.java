@@ -19,17 +19,27 @@ public class Ball extends Projectile {
    * Constructor for Ball.
    *
    * @param radius   Radius of the Circle.
-   * @param position Point2D initial position of the center of the Ball.
+   * @param position Point2D initial top left position of the center of the Ball.
    * @param velocity Point2D initial velocity for the ball.
    * @param color    Color of the Circle.
    */
   public Ball(double radius, Point2D position, Point2D velocity, Color color) {
-    // TODO: handle discrepancy between top left position and center position, since
-    //  translateX and translateY are the center position for a Circle
     super(new Circle(radius, color),
         position,
         velocity);
     this.radius = radius;
+  }
+
+  /**
+   * Set the shape position for the Ball.
+   *
+   * @param position Position of the top left of the ball.
+   */
+  @Override
+  public void setShapePosition(Point2D position) {
+    Circle shape = (Circle) this.getShape();
+    shape.setCenterX(position.getX() + this.getRadius());
+    shape.setCenterY(position.getY() + this.getRadius());
   }
 
   /**
@@ -45,16 +55,16 @@ public class Ball extends Projectile {
     Rectangle ballBBoxRect = getBoundingBoxRect();
     Rectangle collidingBBoxRect = sprite.getBoundingBoxRect();
 
-    double intersectionUpper = Math.min(collidingBBoxRect.getTranslateY(),
-        ballBBoxRect.getTranslateY());
+    double intersectionUpper = Math.min(collidingBBoxRect.getY(),
+        ballBBoxRect.getY());
     double intersectionLower = Math.max(
-        collidingBBoxRect.getTranslateY() + collidingBBoxRect.getHeight(),
-        ballBBoxRect.getTranslateY() + collidingBBoxRect.getHeight());
-    double intersectionLeft = Math.max(collidingBBoxRect.getTranslateX(),
-        ballBBoxRect.getTranslateX());
+        collidingBBoxRect.getY() + collidingBBoxRect.getHeight(),
+        ballBBoxRect.getY() + collidingBBoxRect.getHeight());
+    double intersectionLeft = Math.max(collidingBBoxRect.getX(),
+        ballBBoxRect.getX());
     double intersectionRight = Math.min(
-        collidingBBoxRect.getTranslateX() + collidingBBoxRect.getWidth(),
-        ballBBoxRect.getTranslateX() + collidingBBoxRect.getWidth());
+        collidingBBoxRect.getX() + collidingBBoxRect.getWidth(),
+        ballBBoxRect.getX() + collidingBBoxRect.getWidth());
     double intersectionHeight = intersectionLower - intersectionUpper;
     double intersectionWidth = intersectionRight - intersectionLeft;
 
@@ -65,9 +75,9 @@ public class Ball extends Projectile {
     }
 
     if (sprite instanceof Paddle) {
-      double centerXBall = ballBBoxRect.getTranslateX() + radius;
+      double centerXBall = ballBBoxRect.getX() + radius;
 
-      double differenceInXPositions = centerXBall - collidingBBoxRect.getTranslateX();
+      double differenceInXPositions = centerXBall - collidingBBoxRect.getX();
       double proportionalLocationAlongPaddle =
           differenceInXPositions / collidingBBoxRect.getWidth();
       double proportionalLocationAlongPaddleClamped = Math.max(0,
@@ -86,8 +96,8 @@ public class Ball extends Projectile {
   public Rectangle getBoundingBoxRect() {
     double radius = ((Circle) this.getShape()).getRadius();
     Rectangle bboxRect = new Rectangle(radius * 2, radius * 2);
-    bboxRect.setTranslateX(getPosition().getX() - radius);
-    bboxRect.setTranslateY(getPosition().getY() - radius);
+    bboxRect.setX(getPosition().getX());
+    bboxRect.setY(getPosition().getY());
     return bboxRect;
   }
 
