@@ -88,6 +88,12 @@ public class Ball extends Projectile {
     return bboxRect;
   }
 
+  /**
+   * Update the Ball. Update position based on velocity. Check if the ball has gone below
+   * the screen and if so then decrement lives.
+   * @param time Elapsed time since last frame.
+   * @param gameWorldManager GameWorldManager for the game.
+   */
   @Override
   public void update(double time, GameWorldManager gameWorldManager) {
     if (isBelowScreen()) {
@@ -97,6 +103,10 @@ public class Ball extends Projectile {
     updatePosition(time);
   }
 
+  /**
+   * Checks if the Ball is below the screen.
+   * @return If the Ball is below the screen.
+   */
   public boolean isBelowScreen() {
     return (getPosition().getY() >= Main.SIZE);
   }
