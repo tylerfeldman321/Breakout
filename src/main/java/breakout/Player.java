@@ -26,7 +26,7 @@ public class Player extends Paddle {
    * @param xMin Leftmost x value that the Player cannot go past.
    * @param xMax Rightmost x value that the Player cannot go past.
    */
-  public Player(int width, int height, Point2D position, Color color, double speed, double xMin,
+  public Player(double width, double height, Point2D position, Color color, double speed, double xMin,
       double xMax) {
     super(width, height, position, color);
     playerSpeed = speed;
