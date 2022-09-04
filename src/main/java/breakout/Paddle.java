@@ -30,7 +30,7 @@ public class Paddle extends Sprite {
     super(new Rectangle(width, height, color),
         position,
         new Point2D(0, 0));
-    setRoundedPaddleCorners(height / 2);
+    setRoundedPaddleCorners(height);
     this.width = width;
     this.height = height;
   }
