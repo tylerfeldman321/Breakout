@@ -26,10 +26,19 @@ public class Wall extends Sprite {
         this.getShape().setStroke(Color.BLACK);
     }
 
+    /**
+     * Handles collision. Does nothing since this is a wall.
+     * @param sprite Other sprite that is colliding with this Sprite.
+     * @param gameWorldManager
+     */
     public void handleCollisionWith(Sprite sprite, GameWorldManager gameWorldManager) {
         return;
     }
 
+    /**
+     * Returns the collision bounding box Rectangle for this object.
+     * @return The collision bounding box Rectangle.
+     */
     public Rectangle getBoundingBoxRect() {
         return (Rectangle) this.getShape();
     }
