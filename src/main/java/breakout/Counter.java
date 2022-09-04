@@ -9,7 +9,7 @@ import javafx.scene.text.Text;
  * @author Tyler Feldman
  */
 public class Counter {
-  private double counterValue;
+  private double value;
   private Text text;
   private String baseString;
 
@@ -26,7 +26,7 @@ public class Counter {
     text = new Text(position.getX(), position.getY(), startString);
 
     this.baseString = baseString;
-    this.counterValue = startValue;
+    this.value = startValue;
   }
 
   /**
@@ -42,8 +42,8 @@ public class Counter {
    * @param value double value by which to change the counter's value.
    */
   public void incrementCounter(double value) {
-    this.counterValue += value;
-    String newCounterString = baseString + (int)this.counterValue;
+    this.value += value;
+    String newCounterString = baseString + (int)this.value;
     this.text.setText(newCounterString);
   }
 
@@ -52,8 +52,8 @@ public class Counter {
    * @param value double to which to set the counter value.
    */
   public void setCounterValue(double value) {
-    this.counterValue = value;
-    String newCounterString = baseString + (int) this.counterValue;
+    this.value = value;
+    String newCounterString = baseString + (int) this.value;
     this.text.setText(newCounterString);
   }
 }
