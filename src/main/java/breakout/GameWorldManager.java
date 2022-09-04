@@ -22,6 +22,8 @@ public class GameWorldManager {
   public static final double WALL_WIDTH = 10;
   public static final double PLAYER_SPEED = 5;
   public static final double SCORE_PER_BLOCK = 100;
+  public static final double LIVES_REMAINING_BASE_MULTIPLIER = 1;
+  public static final double LIVES_REMAINING_MULTIPLIER_FACTOR = 0.1;
   public static final double BALL_RADIUS = 5;
   public static final double BALL_SPEED = 150;
   public static final int NUM_BASIC_BALLS_ALLOWED_IN_PLAY = 1;
@@ -179,7 +181,16 @@ public class GameWorldManager {
    * Handle event when player has won.
    */
   public void playerWins() {
+    increaseScoreBasedOnHowManyLivesAreLeft();
     stopGame("You Win!!!");
+  }
+
+  /**
+   * Increase the user's score based on how many lives are remaining.
+   */
+  private void increaseScoreBasedOnHowManyLivesAreLeft() {
+    scoreCounter.multiply(livesCounter.getValue() * LIVES_REMAINING_MULTIPLIER_FACTOR
+        + LIVES_REMAINING_BASE_MULTIPLIER);
   }
 
   /**

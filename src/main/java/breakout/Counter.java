@@ -48,17 +48,23 @@ public class Counter {
    */
   public void add(double value) {
     this.value += value;
-    String newCounterString = baseString + (int) this.value;
-    this.text.setText(newCounterString);
+    updateDisplay();
   }
 
   /**
-   * Set the counter value to the input and update the display.
+   * Multiply the counter value by the input and update the display.
    *
-   * @param value double to which to set the counter value.
+   * @param multiplier double for which to multiply the counter's value.
    */
-  public void setValue(double value) {
-    this.value = value;
+  public void multiply(double multiplier) {
+    this.value *= multiplier;
+    updateDisplay();
+  }
+
+  /**
+   * Update the display.
+   */
+  public void updateDisplay() {
     String newCounterString = baseString + (int) this.value;
     this.text.setText(newCounterString);
   }
