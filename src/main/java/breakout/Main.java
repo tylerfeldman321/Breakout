@@ -14,7 +14,8 @@ import javafx.util.Duration;
 
 
 /**
- * @author Tyler Feldman Game setup code taken from example_animation / Robert Duvall
+ *
+ * @author Tyler Feldman
  */
 public class Main extends Application {
 
@@ -36,6 +37,15 @@ public class Main extends Application {
     launch(args);
   }
 
+  /**
+   * Start the game. Create the scene and start the timeline.
+   * Code taken from https://coursework.cs.duke.edu/compsci307_2022fall/example_animation, written
+   * by Robert Duvall
+   * @param stage the primary stage for this application, onto which
+   * the application scene can be set.
+   * Applications may create other stages, if needed, but they will not be
+   * primary stages.
+   */
   @Override
   public void start(Stage stage) {
     myScene = setupGame(SIZE, SIZE, BACKGROUND);
@@ -50,6 +60,15 @@ public class Main extends Application {
     animation.play();
   }
 
+  /**
+   * Set up the game. Create the root node and scene. Initialize the Player and build the level.
+   * Ideas and some code taken from https://coursework.cs.duke.edu/compsci307_2022fall/example_animation,
+   * written by Robert Duvall
+   * @param width
+   * @param height
+   * @param background
+   * @return
+   */
   public Scene setupGame(double width, double height, Paint background) {
     rootNode = new Group();
 
@@ -70,12 +89,20 @@ public class Main extends Application {
     return myScene;
   }
 
-
+  /**
+   * Update sprites and check collisions. Runs every frame.
+   * @param elapsedTime Time elapsed since last frame.
+   */
   private void step(double elapsedTime) {
     spriteManager.updateSprites(elapsedTime);
     spriteManager.checkCollisions();
   }
 
+  /**
+   * Handles input from keyboard. Moves Player left/right if left/right arrows are pressed.
+   * Creates a Ball if space bar is pressed.
+   * @param code
+   */
   private void handleKeyInput(KeyCode code) {
     if (code == KeyCode.RIGHT) {
       myPlayer.moveRight();
