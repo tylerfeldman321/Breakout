@@ -167,8 +167,8 @@ public class SpriteManager {
     }
 
     if (isIntersecting(sprite, projectile)) {
-      projectile.handleCollisionWith(sprite, this);
-      sprite.handleCollisionWith(projectile, this);
+      projectile.handleCollisionWith(sprite, gameWorldManager);
+      sprite.handleCollisionWith(projectile, gameWorldManager);
       return true;
     }
     return false;

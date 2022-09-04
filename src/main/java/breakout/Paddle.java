@@ -47,9 +47,9 @@ public class Paddle extends Sprite {
   /**
    * Handles collision with another Sprite.
    * @param sprite Other sprite that is colliding with this Sprite.
-   * @param spriteManager SpriteManager object for the game.
+   * @param gameWorldManager GameWorldManager object for the game.
    */
-  public void handleCollisionWith(Sprite sprite, SpriteManager spriteManager) {
+  public void handleCollisionWith(Sprite sprite, GameWorldManager gameWorldManager) {
     return;
   }
 

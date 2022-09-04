@@ -163,7 +163,7 @@ public abstract class Sprite {
    * @param sprite Other sprite that is colliding with this Sprite.
    * @param spriteManager SpriteManager object for the game.
    */
-  public abstract void handleCollisionWith(Sprite sprite, SpriteManager spriteManager);
+  public abstract void handleCollisionWith(Sprite sprite, GameWorldManager gameWorldManager);
 
   /**
    * Abstract function to get the collision bounding box for the Sprite.
@@ -173,10 +173,10 @@ public abstract class Sprite {
 
   /**
    * Handle the death of the Sprite.
-   * @param spriteManager SpriteManager for the game.
+   * @param gameWorldManager GameWorldManager for the game.
    */
-  public void handleDeath(SpriteManager spriteManager) {
-    spriteManager.removeSprite(this);
+  public void handleDeath(GameWorldManager gameWorldManager) {
+    gameWorldManager.getSpriteManager().removeSprite(this);
   }
 
   /**

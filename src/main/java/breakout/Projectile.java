@@ -23,9 +23,9 @@ public abstract class Projectile extends Sprite {
   /**
    * Handle collision with another Sprite. Does nothing.
    * @param sprite Other sprite that is colliding with this Sprite.
-   * @param spriteManager SpriteManager object for the game.
+   * @param gameWorldManager GameWorldManager object for the game.
    */
-  public void handleCollisionWith(Sprite sprite, SpriteManager spriteManager) {
+  public void handleCollisionWith(Sprite sprite, GameWorldManager gameWorldManager) {
     return;
   }
 }

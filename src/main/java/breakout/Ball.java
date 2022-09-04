@@ -34,9 +34,9 @@ public class Ball extends Projectile {
    * Handles collision with another Sprite. Bounces off other Sprites. Bounces off Paddles at an
    * angle based on where the Ball collides with the Paddle.
    * @param sprite Other sprite that is colliding with this Sprite.
-   * @param spriteManager SpriteManager object for the game.
+   * @param gameWorldManager GameWorldManager object for the game.
    */
-  public void handleCollisionWith(Sprite sprite, SpriteManager spriteManager) {
+  public void handleCollisionWith(Sprite sprite, GameWorldManager gameWorldManager) {
     // TODO: fix bug with collisions occurring in wrong direction
 
     Rectangle ballBBoxRect = getBoundingBoxRect();

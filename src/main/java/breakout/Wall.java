@@ -26,7 +26,7 @@ public class Wall extends Sprite {
         this.getShape().setStroke(Color.BLACK);
     }
 
-    public void handleCollisionWith(Sprite sprite, SpriteManager spriteManager) {
+    public void handleCollisionWith(Sprite sprite, GameWorldManager gameWorldManager) {
         return;
     }
 

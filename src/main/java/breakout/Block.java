@@ -29,10 +29,10 @@ public class Block extends Sprite {
   /**
    * Handles collision with another Sprite. This block is destroyed on collision.
    * @param sprite Other sprite that is colliding with this Sprite.
-   * @param spriteManager SpriteManager object for the game.
+   * @param gameWorldManager GameWorldManager object for the game.
    */
-  public void handleCollisionWith(Sprite sprite, SpriteManager spriteManager) {
-    this.handleDeath(spriteManager);
+  public void handleCollisionWith(Sprite sprite, GameWorldManager gameWorldManager) {
+    this.handleDeath(gameWorldManager);
   }
 
   /**
