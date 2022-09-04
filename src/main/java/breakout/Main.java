@@ -18,21 +18,15 @@ import javafx.util.Duration;
  * @author Tyler Feldman
  */
 public class Main extends Application {
-
-  public static final float ballSpeed = 10;
   public static final int FRAMES_PER_SECOND = 60;
   public static final double SECOND_DELAY = 1.0 / FRAMES_PER_SECOND;
   public static final double SIZE = 400;
   public static final String TITLE = "Breakout";
   public static final Paint BACKGROUND = Color.AZURE;
-  public static final int PADDLE_WIDTH = 40;
-  public static final int PADDLE_HEIGHT = 5;
-  public static final double WALL_WIDTH = 10;
 
   private Scene myScene;
   private Group rootNode;
-  private SpriteManager spriteManager;
-  private Player myPlayer;
+  private GameWorldManager gameWorldManager;
 
   public static void main(String[] args) {
     launch(args);
@@ -49,7 +43,9 @@ public class Main extends Application {
    */
   @Override
   public void start(Stage stage) {
-    myScene = setupGame(SIZE, SIZE, BACKGROUND);
+    myScene = setupScene(SIZE, SIZE, BACKGROUND);
+    gameWorldManager = new GameWorldManager(rootNode, myScene);
+
     stage.setScene(myScene);
     stage.setTitle(TITLE);
     stage.show();
@@ -70,38 +66,13 @@ public class Main extends Application {
    * @param background
    * @return
    */
-  public Scene setupGame(double width, double height, Paint background) {
+  public Scene setupScene(double width, double height, Paint background) {
     rootNode = new Group();
-
-    spriteManager = new SpriteManager(rootNode);
 
     myScene = new Scene(rootNode, width, height, background);
     myScene.setOnKeyPressed(e -> handleKeyInput(e.getCode()));
 
-    Point2D paddleStartingPosition = new Point2D(myScene.getWidth() / 2,
-        myScene.getHeight() - PADDLE_HEIGHT - 30);
-    myPlayer = new Player(PADDLE_WIDTH, PADDLE_HEIGHT, paddleStartingPosition, Color.BLACK, 3.5, WALL_WIDTH,
-        myScene.getWidth() - WALL_WIDTH);
-    spriteManager.addSprite(myPlayer);
-
-    LevelGenerator levelGenerator = new LevelGenerator(spriteManager, myScene);
-    levelGenerator.generateFullLevel(10, 10, 10, 1.5, 1.5, WALL_WIDTH, 50);
-
-    createCounters();
-
     return myScene;
-  }
-
-  /**
-   * Create counters for lives and score.
-   */
-  private void createCounters() {
-    Counter scoreCounter = new Counter(new Point2D(WALL_WIDTH+10, myScene.getHeight()-10),
-        "Score: ", 0);
-    Counter livesCounter = new Counter(new Point2D(myScene.getWidth() - 60, myScene.getHeight()-10),
-        "Lives: ", 3);
-
-    rootNode.getChildren().addAll(scoreCounter.getText(), livesCounter.getText());
   }
 
   /**
@@ -109,8 +80,8 @@ public class Main extends Application {
    * @param elapsedTime Time elapsed since last frame.
    */
   private void step(double elapsedTime) {
-    spriteManager.updateSprites(elapsedTime);
-    spriteManager.checkCollisions();
+    gameWorldManager.updateSprites(elapsedTime);
+    gameWorldManager.checkCollisions();
   }
 
   /**
@@ -120,15 +91,15 @@ public class Main extends Application {
    */
   private void handleKeyInput(KeyCode code) {
     if (code == KeyCode.RIGHT) {
-      myPlayer.moveRight();
+      gameWorldManager.getPlayer().moveRight();
     } else if (code == KeyCode.LEFT) {
-      myPlayer.moveLeft();
+      gameWorldManager.getPlayer().moveLeft();
     }
 
     if (code == KeyCode.SPACE) {
       Ball ball = new Ball(5, new Point2D(200, myScene.getHeight() - 50), new Point2D(0, -100),
           Color.BLACK);
-      spriteManager.addSprite(ball);
+      gameWorldManager.getSpriteManager().addSprite(ball);
     }
   }
 }
