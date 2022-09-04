@@ -30,7 +30,7 @@ public class Paddle extends Sprite {
     super(new Rectangle(width, height, color),
         position,
         new Point2D(0, 0));
-    setRoundedPaddleCorners();
+    setRoundedPaddleCorners(height / 2);
     this.width = width;
     this.height = height;
   }
@@ -38,7 +38,7 @@ public class Paddle extends Sprite {
   /**
    * Set the corners of the Paddle to be rounded.
    */
-  private void setRoundedPaddleCorners() {
+  private void setRoundedPaddleCorners(double arcSize) {
     Rectangle paddleRect = (Rectangle) this.getShape();
     paddleRect.setArcWidth(5);
     paddleRect.setArcHeight(5);
