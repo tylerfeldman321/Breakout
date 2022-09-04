@@ -44,11 +44,11 @@ the ball will only bounce in one direction rather than at an angle.
 
 **Extra features or interesting things we should not miss:**
 
-- Score multiplier based on how many lives are remaining.
+- There is a score multiplier based on how many lives are remaining if the user wins the game.
 - The ball bounces off the paddle at an angle based on where the ball hits the paddle.
 - An extra life powerup is included at the top section of the game. When the ball hits the powerup,
   an extra life is gained.
-- Can specify how many balls can be in play via the `NUM_BASIC_BALLS_ALLOWED_IN_PLAY` variable in
+- Can specify how many player-spawned balls can be in play via the `NUM_BASIC_BALLS_ALLOWED_IN_PLAY` variable in
   GameWorldManager
 
 ### Impressions
