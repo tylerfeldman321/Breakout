@@ -104,4 +104,12 @@ public class Breakout extends Application {
       gameWorldManager.getSpriteManager().addSprite(ball);
     }
   }
+
+  /**
+   * Stop the timeline.
+   */
+  public void stopGame() {
+    timeline.stop();
+  }
+
 }

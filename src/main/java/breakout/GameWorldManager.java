@@ -126,5 +126,20 @@ public class GameWorldManager {
    */
   public void decrementLives() {
     livesCounter.add(-1);
+    if (playerHasLost()) {
+      stopGame();
+    }
+  }
+
+  /**
+   * Checks if player has lost.
+   * @return If the player has lost the game.
+   */
+  public boolean playerHasLost() {
+    return ((int)livesCounter.getValue() <= 0);
+  }
+
+  public void stopGame() {
+    this.breakout.stopGame();
   }
 }
