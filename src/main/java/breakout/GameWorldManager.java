@@ -181,6 +181,10 @@ public class GameWorldManager {
     this.breakout.stopGame();
   }
 
+  /**
+   * Display message to user at the end of the game.
+   * @param message String to display to user.
+   */
   public void displayGameEndMessage(String message) {
     Text text = new Text(Breakout.SIZE/2-60, Breakout.SIZE/2, message);
     text.setFont(new Font(20));
