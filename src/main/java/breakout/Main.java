@@ -27,6 +27,7 @@ public class Main extends Application {
   private Scene myScene;
   private Group rootNode;
   private GameWorldManager gameWorldManager;
+  private Timeline timeline;
 
   public static void main(String[] args) {
     launch(args);
@@ -50,11 +51,11 @@ public class Main extends Application {
     stage.setTitle(TITLE);
     stage.show();
 
-    Timeline animation = new Timeline();
-    animation.setCycleCount(Timeline.INDEFINITE);
-    animation.getKeyFrames()
+    timeline = new Timeline();
+    timeline.setCycleCount(Timeline.INDEFINITE);
+    timeline.getKeyFrames()
         .add(new KeyFrame(Duration.seconds(SECOND_DELAY), e -> step(SECOND_DELAY)));
-    animation.play();
+    timeline.play();
   }
 
   /**
