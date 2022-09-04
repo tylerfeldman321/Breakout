@@ -99,9 +99,7 @@ public class Breakout extends Application {
     }
 
     if (code == KeyCode.SPACE) {
-      Ball ball = new Ball(5, new Point2D(200, myScene.getHeight() - 50), new Point2D(0, -100),
-          Color.BLACK);
-      gameWorldManager.getSpriteManager().addSprite(ball);
+      gameWorldManager.spawnBallFromPlayerPosition();
     }
   }
 

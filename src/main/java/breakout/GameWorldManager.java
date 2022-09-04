@@ -19,6 +19,9 @@ public class GameWorldManager {
   public static final int PADDLE_HEIGHT = 5;
   public static final double WALL_WIDTH = 10;
   public static final double SCORE_PER_BLOCK = 100;
+  public static final double BALL_RADIUS = 5;
+  public static final double BALL_SPEED = 100;
+  public static final int NUM_BASIC_BALLS_ALLOWED_IN_PLAY = 1;
   private SpriteManager spriteManager;
   private LevelGenerator levelGenerator;
   private Counter scoreCounter;
@@ -191,4 +194,20 @@ public class GameWorldManager {
     text.setTextAlignment(TextAlignment.LEFT);
     rootNode.getChildren().add(text);
   }
+
+  /**
+   * Create a ball moving upwards from the center of the Player. If the number of balls in
+   * play is already at a maximum, do not create a new ball.
+   */
+  public void spawnBallFromPlayerPosition() {
+    if (spriteManager.getNumBallsInPlay() >= NUM_BASIC_BALLS_ALLOWED_IN_PLAY) return;
+
+    Ball ball = new Ball(BALL_RADIUS,
+        new Point2D(myPlayer.getPosition().getX()+ myPlayer.getWidth()/2,
+            myPlayer.getPosition().getY()-BALL_RADIUS),
+        new Point2D(0, -BALL_SPEED),
+        Color.BLACK);
+    getSpriteManager().addSprite(ball);
+  }
+
 }
