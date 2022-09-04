@@ -61,7 +61,7 @@ public class Main extends Application
         myScene.setOnKeyPressed(e -> handleKeyInput(e.getCode()));
 
         Point2D paddleStartingPosition = new Point2D(myScene.getWidth()/2, myScene.getHeight()-PADDLE_HEIGHT-30);
-        myPlayer = new Player(PADDLE_WIDTH, PADDLE_HEIGHT, paddleStartingPosition, Color.BLACK, 3.5);
+        myPlayer = new Player(PADDLE_WIDTH, PADDLE_HEIGHT, paddleStartingPosition, Color.BLACK, 3.5, 10, myScene.getWidth()-10);
         spriteManager.addSprite(myPlayer);
 
         LevelGenerator levelGenerator = new LevelGenerator(spriteManager, myScene);
