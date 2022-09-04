@@ -105,6 +105,10 @@ public class GameWorldManager {
    * Build the game level.
    */
   private void buildLevel() {
+    Powerup extraLifePowerup = new ExtraLifePowerup(10,
+        new Point2D(myScene.getWidth() / 2 + 50, 35),
+        new Point2D(0, 0));
+    spriteManager.addSprites(extraLifePowerup);
     levelGenerator.generateFullLevel(10, 10, 10, 1.5, 1.5, WALL_WIDTH, 50);
   }
 
@@ -151,6 +155,13 @@ public class GameWorldManager {
     if (noMoreLives()) {
       playerLoses();
     }
+  }
+
+  /**
+   * Increment the user's lives.
+   */
+  public void incrementLives() {
+    livesCounter.add(1);
   }
 
   /**

@@ -50,6 +50,8 @@ public class Ball extends Projectile {
    * @param gameWorldManager GameWorldManager object for the game.
    */
   public void handleCollisionWith(Sprite sprite, GameWorldManager gameWorldManager) {
+    if (sprite instanceof Powerup) return;
+
     Rectangle ballBBoxRect = getBoundingBoxRect();
     Rectangle collidingBBoxRect = sprite.getBoundingBoxRect();
 
