@@ -31,7 +31,7 @@ public class GameWorldManager {
   public GameWorldManager(Group rootNode, Scene scene) {
     myScene = scene;
     this.rootNode = rootNode;
-    spriteManager = new SpriteManager(rootNode);
+    spriteManager = new SpriteManager(rootNode, this);
     levelGenerator = new LevelGenerator(spriteManager, myScene);
     setupGame();
   }

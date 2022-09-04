@@ -19,13 +19,15 @@ public class SpriteManager {
   private List<Block> blocks = new ArrayList<>();
 
   private Group rootNode;
+  private GameWorldManager gameWorldManager;
 
   /**
    * Constructor for SpriteManager.
    * @param rootNode Group root for the scene.
    */
-  public SpriteManager(Group rootNode) {
+  public SpriteManager(Group rootNode, GameWorldManager gameWorldManager) {
     this.rootNode = rootNode;
+    this.gameWorldManager = gameWorldManager;
   }
 
   /**
