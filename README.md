@@ -36,12 +36,18 @@ shape to be rectangular and that the ball will only bounce horizontally
 or vertically. This means that if the ball hits the corner of a block,
 the ball will only bounce in one direction rather than at an angle.
 
-**Known Bugs:** No known bugs.
+**Known Bugs:**
+
+- If the ball collides with the player paddle near the edge (far left or far right) of the stage
+  next to the wall, and is directed by the paddle towards the wall, there is a chance that the ball
+  can get stuck in the wall.
 
 **Extra features or interesting things we should not miss:**
 
 - Score multiplier based on how many lives are remaining.
 - The ball bounces off the paddle at an angle based on where the ball hits the paddle.
+- An extra life powerup is included at the top section of the game. When the ball hits the powerup,
+  an extra life is gained.
 - Can specify how many balls can be in play via the `NUM_BASIC_BALLS_ALLOWED_IN_PLAY` variable in
   GameWorldManager
 
