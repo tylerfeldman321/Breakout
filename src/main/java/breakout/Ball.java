@@ -110,4 +110,12 @@ public class Ball extends Projectile {
   public boolean isBelowScreen() {
     return (getPosition().getY() >= Breakout.SIZE);
   }
+
+  /**
+   * Gets radius of the ball.
+   * @return radius of the ball as a double.
+   */
+  public double getRadius() {
+    return this.radius;
+  }
 }
