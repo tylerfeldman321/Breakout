@@ -50,21 +50,19 @@ public class Ball extends Projectile {
    * @param gameWorldManager GameWorldManager object for the game.
    */
   public void handleCollisionWith(Sprite sprite, GameWorldManager gameWorldManager) {
-    // TODO: fix bug with collisions occurring in wrong direction
-
     Rectangle ballBBoxRect = getBoundingBoxRect();
     Rectangle collidingBBoxRect = sprite.getBoundingBoxRect();
 
-    double intersectionUpper = Math.min(collidingBBoxRect.getY(),
+    double intersectionUpper = Math.max(collidingBBoxRect.getY(),
         ballBBoxRect.getY());
-    double intersectionLower = Math.max(
+    double intersectionLower = Math.min(
         collidingBBoxRect.getY() + collidingBBoxRect.getHeight(),
-        ballBBoxRect.getY() + collidingBBoxRect.getHeight());
+        ballBBoxRect.getY() + ballBBoxRect.getHeight());
     double intersectionLeft = Math.max(collidingBBoxRect.getX(),
         ballBBoxRect.getX());
     double intersectionRight = Math.min(
         collidingBBoxRect.getX() + collidingBBoxRect.getWidth(),
-        ballBBoxRect.getX() + collidingBBoxRect.getWidth());
+        ballBBoxRect.getX() + ballBBoxRect.getWidth());
     double intersectionHeight = intersectionLower - intersectionUpper;
     double intersectionWidth = intersectionRight - intersectionLeft;
 
