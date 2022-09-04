@@ -34,9 +34,9 @@ public class SpriteManager {
    * Updates all sprites that are active.
    * @param elapsedTime double time elapsed since last frame.
    */
-  public void updateSprites(double elapsedTime) {
+  public void updateSprites(double elapsedTime, GameWorldManager gameWorldManager) {
     for (Sprite sprite : sprites) {
-      sprite.update(elapsedTime);
+      sprite.update(elapsedTime, gameWorldManager);
     }
   }
 

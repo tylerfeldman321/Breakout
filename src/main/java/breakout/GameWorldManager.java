@@ -57,8 +57,8 @@ public class GameWorldManager {
    * Update active sprites.
    * @param elapsedTime Time elapsed since last frame.
    */
-  public void updateSprites(double elapsedTime) {
-    spriteManager.updateSprites(elapsedTime);
+  public void updateSprites(double elapsedTime, GameWorldManager gameWorldManager) {
+    spriteManager.updateSprites(elapsedTime, this);
   }
 
   /**

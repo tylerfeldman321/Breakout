@@ -80,7 +80,7 @@ public class Main extends Application {
    * @param elapsedTime Time elapsed since last frame.
    */
   private void step(double elapsedTime) {
-    gameWorldManager.updateSprites(elapsedTime);
+    gameWorldManager.updateSprites(elapsedTime, gameWorldManager);
     gameWorldManager.checkCollisions();
   }
 

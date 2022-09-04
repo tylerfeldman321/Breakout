@@ -137,7 +137,7 @@ public abstract class Sprite {
    * Updates the sprite. Updates the position of the sprite.
    * @param time Elapsed time since last frame.
    */
-  public void update(double time) {
+  public void update(double time, GameWorldManager gameWorldManager) {
     updatePosition(time);
   }
 
