@@ -40,8 +40,8 @@ public class Paddle extends Sprite {
    */
   private void setRoundedPaddleCorners(double arcSize) {
     Rectangle paddleRect = (Rectangle) this.getShape();
-    paddleRect.setArcWidth(5);
-    paddleRect.setArcHeight(5);
+    paddleRect.setArcWidth(arcSize);
+    paddleRect.setArcHeight(arcSize);
   }
 
   /**
