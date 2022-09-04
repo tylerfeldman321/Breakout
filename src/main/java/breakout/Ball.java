@@ -22,6 +22,8 @@ public class Ball extends Projectile {
    * @param color Color of the Circle.
    */
   public Ball(double radius, Point2D position, Point2D velocity, Color color) {
+    // TODO: handle discrepancy between top left position and center position, since
+    //  translateX and translateY are the center position for a Circle
     super(new Circle(radius, color),
         position,
         velocity);
