@@ -87,4 +87,17 @@ public class Ball extends Projectile {
     bboxRect.setTranslateY(getPosition().getY() - radius);
     return bboxRect;
   }
+
+  @Override
+  public void update(double time, GameWorldManager gameWorldManager) {
+    if (isBelowScreen()) {
+      gameWorldManager.decrementLives();
+      gameWorldManager.getSpriteManager().removeSprites(this);
+    }
+    updatePosition(time);
+  }
+
+  public boolean isBelowScreen() {
+    return (getPosition().getY() >= Main.SIZE);
+  }
 }
