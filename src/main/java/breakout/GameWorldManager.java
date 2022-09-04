@@ -20,9 +20,10 @@ public class GameWorldManager {
   public static final int PADDLE_WIDTH = 40;
   public static final int PADDLE_HEIGHT = 5;
   public static final double WALL_WIDTH = 10;
+  public static final double PLAYER_SPEED = 5;
   public static final double SCORE_PER_BLOCK = 100;
   public static final double BALL_RADIUS = 5;
-  public static final double BALL_SPEED = 100;
+  public static final double BALL_SPEED = 150;
   public static final int NUM_BASIC_BALLS_ALLOWED_IN_PLAY = 1;
   private SpriteManager spriteManager;
   private LevelGenerator levelGenerator;
@@ -108,7 +109,11 @@ public class GameWorldManager {
   private void initializePlayer() {
     Point2D paddleStartingPosition = new Point2D(myScene.getWidth() / 2,
         myScene.getHeight() - PADDLE_HEIGHT - 30);
-    myPlayer = new Player(PADDLE_WIDTH, PADDLE_HEIGHT, paddleStartingPosition, Color.BLACK, 3.5,
+    myPlayer = new Player(PADDLE_WIDTH,
+        PADDLE_HEIGHT,
+        paddleStartingPosition,
+        Color.BLACK,
+        PLAYER_SPEED,
         WALL_WIDTH,
         myScene.getWidth() - WALL_WIDTH);
     spriteManager.addSprite(myPlayer);
