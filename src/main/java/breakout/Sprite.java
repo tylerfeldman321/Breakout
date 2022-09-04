@@ -180,8 +180,8 @@ public abstract class Sprite {
   /**
    * Abstract function for Sprite object to handle collision with another Sprite.
    *
-   * @param sprite        Other sprite that is colliding with this Sprite.
-   * @param spriteManager SpriteManager object for the game.
+   * @param sprite           Other sprite that is colliding with this Sprite.
+   * @param gameWorldManager GameWorldManager object for the game.
    */
   public abstract void handleCollisionWith(Sprite sprite, GameWorldManager gameWorldManager);
 
