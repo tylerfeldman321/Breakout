@@ -139,6 +139,9 @@ public class GameWorldManager {
     return ((int)livesCounter.getValue() <= 0);
   }
 
+  /**
+   * Stop the game.
+   */
   public void stopGame() {
     this.breakout.stopGame();
   }
