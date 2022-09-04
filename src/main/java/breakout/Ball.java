@@ -5,10 +5,22 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
+/**
+ * Ball is a Projectile that has a circular shape and bounces off other Sprites during collisions.
+ * @author Tyler Feldman
+ * @see Projectile
+ */
 public class Ball extends Projectile {
 
   private double radius;
 
+  /**
+   * Constructor for Ball.
+   * @param radius Radius of the Circle.
+   * @param position Point2D initial position of the center of the Ball.
+   * @param velocity Point2D initial velocity for the ball.
+   * @param color Color of the Circle.
+   */
   public Ball(double radius, Point2D position, Point2D velocity, Color color) {
     super(new Circle(radius, color),
         position,
@@ -16,6 +28,12 @@ public class Ball extends Projectile {
     this.radius = radius;
   }
 
+  /**
+   * Handles collision with another Sprite. Bounces off other Sprites. Bounces off Paddles at an
+   * angle based on where the Ball collides with the Paddle.
+   * @param sprite Other sprite that is colliding with this Sprite.
+   * @param spriteManager SpriteManager object for the game.
+   */
   public void handleCollisionWith(Sprite sprite, SpriteManager spriteManager) {
     // TODO: fix bug with collisions occurring in wrong direction
 
@@ -57,6 +75,9 @@ public class Ball extends Projectile {
     }
   }
 
+  /**
+   * Get bounding box Rectangle (which happens to be a square) that encloses the Ball.
+   */
   public Rectangle getBoundingBoxRect() {
     double radius = ((Circle) this.getShape()).getRadius();
     Rectangle bboxRect = new Rectangle(radius * 2, radius * 2);
