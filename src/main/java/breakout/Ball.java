@@ -92,7 +92,7 @@ public class Ball extends Projectile {
    * Get bounding box Rectangle (which happens to be a square) that encloses the Ball.
    */
   public Rectangle getBoundingBoxRect() {
-    double radius = ((Circle) this.getShape()).getRadius();
+    double radius = this.getRadius();
     Rectangle bboxRect = new Rectangle(radius * 2, radius * 2);
     bboxRect.setX(getPosition().getX());
     bboxRect.setY(getPosition().getY());
