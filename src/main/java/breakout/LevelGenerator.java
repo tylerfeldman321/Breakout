@@ -71,10 +71,4 @@ public class LevelGenerator {
     Wall wallTop = new Wall(scene.getWidth(), wallWidth, new Point2D(0, 0), Color.BLACK);
     spriteManager.addSprites(wallTop, wallLeft, wallRight);
   }
-
-  public void loadFromFile() {
-
-  }
-
-
 }
