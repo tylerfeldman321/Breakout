@@ -110,6 +110,14 @@ public class Breakout extends Application {
    */
   public void stopGame() {
     timeline.stop();
+    stopUserInput();
+  }
+
+  /**
+   * Stop user input.
+   */
+  private void stopUserInput() {
+    myScene.setOnKeyPressed(null);
   }
 
 }
