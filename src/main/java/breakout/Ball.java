@@ -15,6 +15,8 @@ public class Ball extends Projectile {
     }
 
     public void handleCollisionWith(Sprite sprite, SpriteManager spriteManager) {
+        // TODO: fix bug with collisions occurring in wrong direction
+
         Rectangle ballBBoxRect = getBoundingBoxRect();
         Rectangle collidingBBoxRect = sprite.getBoundingBoxRect();
 
