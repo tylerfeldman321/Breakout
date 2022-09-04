@@ -27,6 +27,7 @@ public class Main extends Application {
   public static final Paint BACKGROUND = Color.AZURE;
   public static final int PADDLE_WIDTH = 40;
   public static final int PADDLE_HEIGHT = 5;
+  public static final double WALL_WIDTH = 10;
 
   private Scene myScene;
   private Group rootNode;
@@ -79,12 +80,12 @@ public class Main extends Application {
 
     Point2D paddleStartingPosition = new Point2D(myScene.getWidth() / 2,
         myScene.getHeight() - PADDLE_HEIGHT - 30);
-    myPlayer = new Player(PADDLE_WIDTH, PADDLE_HEIGHT, paddleStartingPosition, Color.BLACK, 3.5, 10,
-        myScene.getWidth() - 10);
+    myPlayer = new Player(PADDLE_WIDTH, PADDLE_HEIGHT, paddleStartingPosition, Color.BLACK, 3.5, WALL_WIDTH,
+        myScene.getWidth() - WALL_WIDTH);
     spriteManager.addSprite(myPlayer);
 
     LevelGenerator levelGenerator = new LevelGenerator(spriteManager, myScene);
-    levelGenerator.generateFullLevel(10, 10, 10, 1.5, 1.5, 10, 50);
+    levelGenerator.generateFullLevel(10, 10, 10, 1.5, 1.5, WALL_WIDTH, 50);
 
     return myScene;
   }
