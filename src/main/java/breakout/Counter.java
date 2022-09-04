@@ -41,7 +41,7 @@ public class Counter {
    * Increment the counter value by the input and update the display text.
    * @param value double value by which to change the counter's value.
    */
-  public void incrementCounter(double value) {
+  public void add(double value) {
     this.value += value;
     String newCounterString = baseString + (int)this.value;
     this.text.setText(newCounterString);
@@ -51,7 +51,7 @@ public class Counter {
    * Set the counter value to the input and update the display.
    * @param value double to which to set the counter value.
    */
-  public void setCounterValue(double value) {
+  public void setValue(double value) {
     this.value = value;
     String newCounterString = baseString + (int) this.value;
     this.text.setText(newCounterString);
