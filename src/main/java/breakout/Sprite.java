@@ -6,105 +6,102 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
 /**
- * @author Tyler Feldman
- * Inspiration taken from https://gamedevelopment.tutsplus.com/tutorials/introduction-to-javafx-for-game-development--cms-23835
+ * @author Tyler Feldman Inspiration taken from
+ * https://gamedevelopment.tutsplus.com/tutorials/introduction-to-javafx-for-game-development--cms-23835
  */
-public abstract class Sprite
-{
-    private ImageView image;
-    private Shape shape;
-    private Point2D position;
-    private Point2D velocity;
+public abstract class Sprite {
 
-    public Sprite(Shape shape, Point2D position, Point2D velocity)
-    {
-        image = null;
-        this.shape = shape;
-        setAllPositions(position);
-        this.velocity = velocity;
-    }
+  private ImageView image;
+  private Shape shape;
+  private Point2D position;
+  private Point2D velocity;
 
-    public Sprite(Shape shape) {
-        this.shape = shape;
-        this.position = new Point2D(0, 0);
-        this.velocity = new Point2D(0, 0);
-    }
+  public Sprite(Shape shape, Point2D position, Point2D velocity) {
+    image = null;
+    this.shape = shape;
+    setAllPositions(position);
+    this.velocity = velocity;
+  }
 
-    public void setPosition(Point2D position)
-    {
-        this.position = position;
-    }
+  public Sprite(Shape shape) {
+    this.shape = shape;
+    this.position = new Point2D(0, 0);
+    this.velocity = new Point2D(0, 0);
+  }
 
-    public void setPosition(double x, double y) {
-        this.position = new Point2D(x, y);
-    }
+  public void setPosition(Point2D position) {
+    this.position = position;
+  }
 
-    public void setPositionX(double x) {
-        this.position = new Point2D(x, this.position.getY());
-    }
+  public void setPosition(double x, double y) {
+    this.position = new Point2D(x, y);
+  }
 
-    public void setPositionY(double y) {
-        this.position = new Point2D(this.position.getX(), y);
-    }
+  public void setPositionX(double x) {
+    this.position = new Point2D(x, this.position.getY());
+  }
 
-    public void setAllPositions(Point2D position) {
-        this.position = position;
-        this.shape.setTranslateX(position.getX());
-        this.shape.setTranslateY(position.getY());
-    }
+  public void setPositionY(double y) {
+    this.position = new Point2D(this.position.getX(), y);
+  }
 
-    public Point2D getPosition() {
-        return this.position;
-    }
+  public void setAllPositions(Point2D position) {
+    this.position = position;
+    this.shape.setTranslateX(position.getX());
+    this.shape.setTranslateY(position.getY());
+  }
 
-    public void setVelocity(Point2D velocity)
-    {
-        this.velocity = velocity;
-    }
+  public Point2D getPosition() {
+    return this.position;
+  }
 
-    public void setVelocity(double angle, double speed) {
-        double radians = Math.toRadians(angle);
-        double velocityX = speed * Math.cos(radians);
-        double velocityY = -speed * Math.sin(radians);
-        setVelocity(new Point2D(velocityX, velocityY));
-    }
+  public void setVelocity(Point2D velocity) {
+    this.velocity = velocity;
+  }
 
-    public double getSpeed() {
-        return getVelocity().magnitude();
-    }
+  public void setVelocity(double angle, double speed) {
+    double radians = Math.toRadians(angle);
+    double velocityX = speed * Math.cos(radians);
+    double velocityY = -speed * Math.sin(radians);
+    setVelocity(new Point2D(velocityX, velocityY));
+  }
 
-    public Point2D getVelocity() { return this.velocity; }
+  public double getSpeed() {
+    return getVelocity().magnitude();
+  }
 
-    public void update(double time)
-    {
-        updatePosition(time);
-    }
+  public Point2D getVelocity() {
+    return this.velocity;
+  }
 
-    public void updatePosition(double time) {
-        Point2D displacement = new Point2D(velocity.getX() * time, velocity.getY() * time);
-        setAllPositions(position.add(displacement));
-    }
+  public void update(double time) {
+    updatePosition(time);
+  }
 
-    public Shape getShape()
-    {
-        return shape;
-    }
+  public void updatePosition(double time) {
+    Point2D displacement = new Point2D(velocity.getX() * time, velocity.getY() * time);
+    setAllPositions(position.add(displacement));
+  }
 
-    public abstract void handleCollisionWith(Sprite sprite, SpriteManager spriteManager);
+  public Shape getShape() {
+    return shape;
+  }
 
-    public abstract Rectangle getBoundingBoxRect();
+  public abstract void handleCollisionWith(Sprite sprite, SpriteManager spriteManager);
 
-    public void handleDeath(SpriteManager spriteManager) {
-        spriteManager.removeSprite(this);
-    }
+  public abstract Rectangle getBoundingBoxRect();
 
-    public void bounceX() {
-        Point2D newVelocity = new Point2D(-this.getVelocity().getX(), this.getVelocity().getY());
-        this.setVelocity(newVelocity);
-    }
+  public void handleDeath(SpriteManager spriteManager) {
+    spriteManager.removeSprite(this);
+  }
 
-    public void bounceY() {
-        Point2D newVelocity = new Point2D(this.getVelocity().getX(), -this.getVelocity().getY());
-        this.setVelocity(newVelocity);
-    }
+  public void bounceX() {
+    Point2D newVelocity = new Point2D(-this.getVelocity().getX(), this.getVelocity().getY());
+    this.setVelocity(newVelocity);
+  }
+
+  public void bounceY() {
+    Point2D newVelocity = new Point2D(this.getVelocity().getX(), -this.getVelocity().getY());
+    this.setVelocity(newVelocity);
+  }
 }

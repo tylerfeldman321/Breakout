@@ -5,41 +5,42 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Paddle extends Sprite {
-    public static final double ANGLE_MIN = 30;
-    public static final double ANGLE_MAX = 150;
-    public static final double ANGLE_RANGE = ANGLE_MAX - ANGLE_MIN;
 
-    private double width;
-    private double height;
+  public static final double ANGLE_MIN = 30;
+  public static final double ANGLE_MAX = 150;
+  public static final double ANGLE_RANGE = ANGLE_MAX - ANGLE_MIN;
 
-    public Paddle(int width, int height, Point2D position, Color color) {
-        super(new Rectangle(width, height, color),
-                position,
-                new Point2D(0, 0));
-        setRoundedPaddleCorners();
-        this.width = width;
-        this.height = height;
-    }
+  private double width;
+  private double height;
 
-    private void setRoundedPaddleCorners() {
-        Rectangle paddleRect = (Rectangle)this.getShape();
-        paddleRect.setArcWidth(5);
-        paddleRect.setArcHeight(5);
-    }
+  public Paddle(int width, int height, Point2D position, Color color) {
+    super(new Rectangle(width, height, color),
+        position,
+        new Point2D(0, 0));
+    setRoundedPaddleCorners();
+    this.width = width;
+    this.height = height;
+  }
 
-    public void handleCollisionWith(Sprite sprite, SpriteManager spriteManager) {
-        return;
-    }
+  private void setRoundedPaddleCorners() {
+    Rectangle paddleRect = (Rectangle) this.getShape();
+    paddleRect.setArcWidth(5);
+    paddleRect.setArcHeight(5);
+  }
 
-    public Rectangle getBoundingBoxRect() {
-        return (Rectangle) this.getShape();
-    }
+  public void handleCollisionWith(Sprite sprite, SpriteManager spriteManager) {
+    return;
+  }
 
-    public double getWidth() {
-        return this.width;
-    }
+  public Rectangle getBoundingBoxRect() {
+    return (Rectangle) this.getShape();
+  }
 
-    public double getHeight() {
-        return this.height;
-    }
+  public double getWidth() {
+    return this.width;
+  }
+
+  public double getHeight() {
+    return this.height;
+  }
 }
