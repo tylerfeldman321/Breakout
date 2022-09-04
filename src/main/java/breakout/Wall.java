@@ -5,7 +5,19 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
 
+/**
+ * Wall is a Sprite that has an internal Shape that is a Rectangle and does not move.
+ * @author Tyler Feldman
+ */
 public class Wall extends Sprite {
+
+    /**
+     * Constructor for Wall
+     * @param width Width of the wall.
+     * @param height Height of the wall.
+     * @param position Point2D for the top left corner of the wall.
+     * @param color Color for the fill of the Rectangle.
+     */
     public Wall(double width, double height, Point2D position, Color color) {
         super(new Rectangle(width, height, color),
                 position,
