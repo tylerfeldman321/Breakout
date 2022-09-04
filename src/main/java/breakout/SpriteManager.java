@@ -195,4 +195,12 @@ public class SpriteManager {
     Shape intersection = Shape.intersect(spriteA.getShape(), spriteB.getShape());
     return (intersection.getBoundsInLocal().getWidth() != -1);  // From example_animation
   }
+
+  /**
+   * Checks if there are no active Block objects remaining.
+   * @return true if no active Block objects remaining.
+   */
+  public boolean noBlocksRemaining() {
+    return (blocks.size() == 0);
+  }
 }

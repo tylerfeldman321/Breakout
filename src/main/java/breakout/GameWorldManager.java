@@ -140,6 +140,15 @@ public class GameWorldManager {
   }
 
   /**
+   * Checks if there are active blocks remaining in play.
+   * @return true if no blocks are remaining
+   */
+  public boolean noBlocksRemaining() {
+    return spriteManager.noBlocksRemaining();
+  }
+
+
+  /**
    * Stop the game.
    */
   public void stopGame() {
