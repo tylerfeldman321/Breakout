@@ -127,7 +127,7 @@ public class GameWorldManager {
   public void decrementLives() {
     livesCounter.add(-1);
     if (noMoreLives()) {
-      stopGame();
+      playerLoses();
     }
   }
 
@@ -145,6 +145,29 @@ public class GameWorldManager {
    */
   public boolean noBlocksRemaining() {
     return spriteManager.noBlocksRemaining();
+  }
+
+  /**
+   * Checks if player has won.
+   */
+  public void checkIfPlayerHasWon() {
+    if (noBlocksRemaining()) {
+      playerWins();
+    }
+  }
+
+  /**
+   * Handle event when player has won.
+   */
+  public void playerWins() {
+    stopGame();
+  }
+
+  /**
+   * Handle event when player has lost.
+   */
+  public void playerLoses() {
+    stopGame();
   }
 
 
