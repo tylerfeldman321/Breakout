@@ -145,7 +145,7 @@ public class SpriteManager {
       projectile = projectiles.get(i);
       for (int j = 0; j < sprites.size(); j++) {
         sprite = sprites.get(j);
-        if (handleCollision(sprite, projectile)) {
+        if (spritesHaveCollided(sprite, projectile)) {
           break;
         }
       }
@@ -153,12 +153,13 @@ public class SpriteManager {
   }
 
   /**
-   * Handle collision between Sprite and Projectile.
+   * Check if collision has occurred, handle collision between Sprite and Projectile, and return
+   * if a collision has occurred.
    * @param sprite Sprite object that has collided with projectile.
    * @param projectile Projectile object that has collided with sprite.
-   * @return Whether a collision has occured.
+   * @return Whether a collision has occurred.
    */
-  public boolean handleCollision(Sprite sprite, Projectile projectile) {
+  public boolean spritesHaveCollided(Sprite sprite, Projectile projectile) {
     if (sprite == projectile) {
       return false;
     }
