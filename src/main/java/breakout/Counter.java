@@ -56,4 +56,12 @@ public class Counter {
     String newCounterString = baseString + (int) this.value;
     this.text.setText(newCounterString);
   }
+
+  /**
+   * Get value of the Counter.
+   * @return value of the Counter.
+   */
+  public double getValue() {
+    return this.value;
+  }
 }
