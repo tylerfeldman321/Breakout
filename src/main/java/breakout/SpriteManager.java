@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * SpriteManager handles the sprites that are active in the game. It keeps track of all projectiles,
  * and blocks that are active. It also has functions for checking and handling collisions.
+ * Inspiration taken from https://dzone.com/articles/javafx-2-game-tutorial-part-2.
  *
  * @author Tyler Feldman
  */

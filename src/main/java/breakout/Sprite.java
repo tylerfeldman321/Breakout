@@ -10,6 +10,7 @@ import javafx.scene.shape.Shape;
  * that has a shape, position, and velocity and interacts with other objects in the game.
  * Inspiration taken from
  * https://gamedevelopment.tutsplus.com/tutorials/introduction-to-javafx-for-game-development--cms-23835
+ * and https://dzone.com/articles/javafx-2-game-tutorial-part-2
  *
  * @author Tyler Feldman
  */
