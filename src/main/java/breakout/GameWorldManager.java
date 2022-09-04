@@ -101,6 +101,9 @@ public class GameWorldManager {
     createCounters();
   }
 
+  /**
+   * Build the game level.
+   */
   private void buildLevel() {
     levelGenerator.generateFullLevel(10, 10, 10, 1.5, 1.5, WALL_WIDTH, 50);
   }
