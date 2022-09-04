@@ -20,6 +20,7 @@ public class SpriteManager {
   private List<Block> blocks = new ArrayList<>();
 
   private HashSet<Sprite> spritesToBeRemoved = new HashSet<>();
+  private int numBlocksToBeRemoved = 0;
 
   private Group rootNode;
   private GameWorldManager gameWorldManager;
@@ -51,6 +52,7 @@ public class SpriteManager {
       removeSprite(sprite);
     }
     spritesToBeRemoved.clear();
+    numBlocksToBeRemoved = 0;
   }
 
   /**
@@ -106,7 +108,10 @@ public class SpriteManager {
    * @param sprites List of Sprite objects to remove.
    */
   public void removeSprites(List<Sprite> sprites) {
-    spritesToBeRemoved.addAll(sprites);
+    for (Sprite sprite : sprites) {
+      if (sprite instanceof Block) numBlocksToBeRemoved++;
+      spritesToBeRemoved.add(sprite);
+    }
   }
 
   /**
@@ -201,6 +206,6 @@ public class SpriteManager {
    * @return true if no active Block objects remaining.
    */
   public boolean noBlocksRemaining() {
-    return (blocks.size() == 0);
+    return (blocks.size() - numBlocksToBeRemoved == 0);
   }
 }
