@@ -7,6 +7,8 @@ import javafx.geometry.Point2D;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.Group;
@@ -87,7 +89,21 @@ public class Main extends Application {
     LevelGenerator levelGenerator = new LevelGenerator(spriteManager, myScene);
     levelGenerator.generateFullLevel(10, 10, 10, 1.5, 1.5, WALL_WIDTH, 50);
 
+    createCounters();
+
     return myScene;
+  }
+
+  /**
+   * Create counters for lives and score.
+   */
+  private void createCounters() {
+    Counter scoreCounter = new Counter(new Point2D(WALL_WIDTH+10, myScene.getHeight()-10),
+        "Score: ", 0);
+    Counter livesCounter = new Counter(new Point2D(myScene.getWidth() - 60, myScene.getHeight()-10),
+        "Lives: ", 3);
+
+    rootNode.getChildren().addAll(scoreCounter.getText(), livesCounter.getText());
   }
 
   /**
