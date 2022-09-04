@@ -21,6 +21,7 @@ public class SpriteManager {
 
   private HashSet<Sprite> spritesToBeRemoved = new HashSet<>();
   private int numBlocksToBeRemoved = 0;
+  private int numBallsInPlay = 0;
 
   private Group rootNode;
   private GameWorldManager gameWorldManager;
@@ -98,6 +99,7 @@ public class SpriteManager {
     sprites.add(sprite);
     if (sprite instanceof Projectile) {
       projectiles.add((Projectile) sprite);
+      if (sprite instanceof Ball) numBallsInPlay++;
     } else if (sprite instanceof Block) {
       blocks.add((Block) sprite);
     }
@@ -147,6 +149,7 @@ public class SpriteManager {
     sprites.remove(sprite);
     if (sprite instanceof Projectile) {
       projectiles.remove((Projectile) sprite);
+      if (sprite instanceof Ball) numBallsInPlay--;
     } else if (sprite instanceof Block) {
       blocks.remove((Block) sprite);
     }
@@ -216,5 +219,13 @@ public class SpriteManager {
     for (Sprite sprite : sprites) {
       rootNode.getChildren().remove(sprite.getShape());
     }
+  }
+
+  /**
+   * Get number of balls in play.
+   * @return Number of balls in play.
+   */
+  public int getNumBallsInPlay() {
+    return numBallsInPlay;
   }
 }
