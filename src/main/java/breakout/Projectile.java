@@ -6,13 +6,15 @@ import javafx.scene.shape.Shape;
 
 /**
  * Abstract class for any projectiles that are used in the game.
+ *
  * @author Tyler Feldman
  */
 public abstract class Projectile extends Sprite {
 
   /**
    * Constructor for Projectile.
-   * @param shape Shape of the projectile.
+   *
+   * @param shape    Shape of the projectile.
    * @param position Point2D initial position.
    * @param velocity Point2D intial velocity.
    */
@@ -22,7 +24,8 @@ public abstract class Projectile extends Sprite {
 
   /**
    * Handle collision with another Sprite. Does nothing.
-   * @param sprite Other sprite that is colliding with this Sprite.
+   *
+   * @param sprite           Other sprite that is colliding with this Sprite.
    * @param gameWorldManager GameWorldManager object for the game.
    */
   public void handleCollisionWith(Sprite sprite, GameWorldManager gameWorldManager) {

@@ -5,8 +5,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 /**
- * Paddle class is a Rectangle shaped Sprite. When a Ball object collides with a Paddle, it
- * bounces off the Paddle at an angle based on where the Ball collides with the Paddle.
+ * Paddle class is a Rectangle shaped Sprite. When a Ball object collides with a Paddle, it bounces
+ * off the Paddle at an angle based on where the Ball collides with the Paddle.
  *
  * @author Tyler Feldman
  */
@@ -21,10 +21,11 @@ public class Paddle extends Sprite {
 
   /**
    * Constructor for Paddle.
-   * @param width Width of the Rectangle.
-   * @param height Height of the Rectangle.
+   *
+   * @param width    Width of the Rectangle.
+   * @param height   Height of the Rectangle.
    * @param position Top left position of the Paddle.
-   * @param color Color for the fill of the Rectangle.
+   * @param color    Color for the fill of the Rectangle.
    */
   public Paddle(double width, double height, Point2D position, Color color) {
     super(new Rectangle(width, height, color),
@@ -46,7 +47,8 @@ public class Paddle extends Sprite {
 
   /**
    * Handles collision with another Sprite.
-   * @param sprite Other sprite that is colliding with this Sprite.
+   *
+   * @param sprite           Other sprite that is colliding with this Sprite.
    * @param gameWorldManager GameWorldManager object for the game.
    */
   public void handleCollisionWith(Sprite sprite, GameWorldManager gameWorldManager) {
@@ -55,6 +57,7 @@ public class Paddle extends Sprite {
 
   /**
    * Get the Rectangle collision bounding box of the Paddle.
+   *
    * @return The bounding box Rectangle for the Paddle.
    */
   public Rectangle getBoundingBoxRect() {
@@ -63,6 +66,7 @@ public class Paddle extends Sprite {
 
   /**
    * Get the width of the Paddle.
+   *
    * @return double for the width of the Paddle.
    */
   public double getWidth() {
@@ -71,6 +75,7 @@ public class Paddle extends Sprite {
 
   /**
    * Get the height of the Paddle.
+   *
    * @return double for the height of the Paddle.
    */
   public double getHeight() {

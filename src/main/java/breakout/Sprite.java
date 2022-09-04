@@ -6,9 +6,11 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
 /**
- * Sprite is the abstract base class for any object that exists in the game. It represents an
- * object that has a shape, position, and velocity and interacts with other objects in the game.
- * Inspiration taken from https://gamedevelopment.tutsplus.com/tutorials/introduction-to-javafx-for-game-development--cms-23835
+ * Sprite is the abstract base class for any object that exists in the game. It represents an object
+ * that has a shape, position, and velocity and interacts with other objects in the game.
+ * Inspiration taken from
+ * https://gamedevelopment.tutsplus.com/tutorials/introduction-to-javafx-for-game-development--cms-23835
+ *
  * @author Tyler Feldman
  */
 public abstract class Sprite {
@@ -20,7 +22,8 @@ public abstract class Sprite {
 
   /**
    * Creates a Sprite object.
-   * @param shape shape of the sprite.
+   *
+   * @param shape    shape of the sprite.
    * @param position initial position of the sprite.
    * @param velocity initial velocity of the sprite.
    */
@@ -33,6 +36,7 @@ public abstract class Sprite {
 
   /**
    * Creates sprite object with an initial position and velocity of (0, 0).
+   *
    * @param shape Shape for the sprite object.
    */
   public Sprite(Shape shape) {
@@ -43,6 +47,7 @@ public abstract class Sprite {
 
   /**
    * Set the position for the Sprite object.
+   *
    * @param position Point2D representing the top left of the sprite.
    */
   public void setPosition(Point2D position) {
@@ -51,6 +56,7 @@ public abstract class Sprite {
 
   /**
    * Set the position for the Sprite object.
+   *
    * @param x x-position of the top left of the sprite.
    * @param y y-position of the top left of the sprite.
    */
@@ -60,6 +66,7 @@ public abstract class Sprite {
 
   /**
    * Set the x-position of the Sprite.
+   *
    * @param x x-position of the top left of the sprite.
    */
   public void setPositionX(double x) {
@@ -68,6 +75,7 @@ public abstract class Sprite {
 
   /**
    * Set the y-position of the Sprite.
+   *
    * @param y y-position of the top left of the sprite.
    */
   public void setPositionY(double y) {
@@ -75,8 +83,9 @@ public abstract class Sprite {
   }
 
   /**
-   * Set the position for all components of the sprite. This includes the position and the
-   * x and y translations for the internal shape.
+   * Set the position for all components of the sprite. This includes the position and the x and y
+   * translations for the internal shape.
+   *
    * @param position
    */
   public void setAllPositions(Point2D position) {
@@ -87,6 +96,7 @@ public abstract class Sprite {
 
   /**
    * Gets position.
+   *
    * @return Point2D for the top left position of the sprite.
    */
   public Point2D getPosition() {
@@ -95,6 +105,7 @@ public abstract class Sprite {
 
   /**
    * Sets the velocity of the sprite given a new velocity.
+   *
    * @param velocity the new velocity
    */
   public void setVelocity(Point2D velocity) {
@@ -104,10 +115,11 @@ public abstract class Sprite {
   /**
    * Sets the velocity of the sprite, given an angle and speed. Assumes the angle is given in
    * radians.
-   * @param angle the angle in degrees of the velocity vector. From user's perspective, 0 degrees
-   *              is to the right, increases positively going counterclockwise. For example, an
-   *              angle of 45 degrees would be up and to the right, and angle of 180 degrees
-   *              would be to the left when viewed from the user.
+   *
+   * @param angle the angle in degrees of the velocity vector. From user's perspective, 0 degrees is
+   *              to the right, increases positively going counterclockwise. For example, an angle
+   *              of 45 degrees would be up and to the right, and angle of 180 degrees would be to
+   *              the left when viewed from the user.
    * @param speed magnitude of new velocity
    */
   public void setVelocity(double angle, double speed) {
@@ -119,6 +131,7 @@ public abstract class Sprite {
 
   /**
    * Get the magnitude of the sprite's velocity.
+   *
    * @return magnitude of the sprite's velocity.
    */
   public double getSpeed() {
@@ -127,6 +140,7 @@ public abstract class Sprite {
 
   /**
    * Get the velocity of the sprite.
+   *
    * @return velocity of the sprite.
    */
   public Point2D getVelocity() {
@@ -135,6 +149,7 @@ public abstract class Sprite {
 
   /**
    * Updates the sprite. Updates the position of the sprite.
+   *
    * @param time Elapsed time since last frame.
    */
   public void update(double time, GameWorldManager gameWorldManager) {
@@ -143,6 +158,7 @@ public abstract class Sprite {
 
   /**
    * Updates the position of the sprite based on velocity.
+   *
    * @param time How much time has elapsed since last frame.
    */
   public void updatePosition(double time) {
@@ -152,6 +168,7 @@ public abstract class Sprite {
 
   /**
    * Get the internal shape of the Sprite object.
+   *
    * @return Internal Shape of the Sprite object.
    */
   public Shape getShape() {
@@ -160,19 +177,22 @@ public abstract class Sprite {
 
   /**
    * Abstract function for Sprite object to handle collision with another Sprite.
-   * @param sprite Other sprite that is colliding with this Sprite.
+   *
+   * @param sprite        Other sprite that is colliding with this Sprite.
    * @param spriteManager SpriteManager object for the game.
    */
   public abstract void handleCollisionWith(Sprite sprite, GameWorldManager gameWorldManager);
 
   /**
    * Abstract function to get the collision bounding box for the Sprite.
+   *
    * @return Rectangle that represents the collision bounding box for the Sprite.
    */
   public abstract Rectangle getBoundingBoxRect();
 
   /**
    * Handle the death of the Sprite.
+   *
    * @param gameWorldManager GameWorldManager for the game.
    */
   public void handleDeath(GameWorldManager gameWorldManager) {

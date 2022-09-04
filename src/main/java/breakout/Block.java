@@ -7,16 +7,18 @@ import javafx.scene.shape.StrokeType;
 
 /**
  * Block is a Rectangle shaped object that is destroyed when a Projectile collides with it.
+ *
  * @author Tyler Feldman
  */
 public class Block extends Sprite {
 
   /**
    * Constructor for Block.
-   * @param width Width of the block.
-   * @param height Height of the block.
+   *
+   * @param width    Width of the block.
+   * @param height   Height of the block.
    * @param position Point2D for the top left position of the Block.
-   * @param color Color for the fill of the Rectangle.
+   * @param color    Color for the fill of the Rectangle.
    */
   public Block(double width, double height, Point2D position, Color color) {
     super(new Rectangle(width, height, color),
@@ -28,7 +30,8 @@ public class Block extends Sprite {
 
   /**
    * Handles collision with another Sprite. This block is destroyed on collision.
-   * @param sprite Other sprite that is colliding with this Sprite.
+   *
+   * @param sprite           Other sprite that is colliding with this Sprite.
    * @param gameWorldManager GameWorldManager object for the game.
    */
   public void handleCollisionWith(Sprite sprite, GameWorldManager gameWorldManager) {
@@ -39,6 +42,7 @@ public class Block extends Sprite {
 
   /**
    * Get the bounding box Rectangle for the Block.
+   *
    * @return Rectangle for the collision bounding box for the Block.
    */
   public Rectangle getBoundingBoxRect() {

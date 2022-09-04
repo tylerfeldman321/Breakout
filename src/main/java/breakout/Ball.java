@@ -7,6 +7,7 @@ import javafx.scene.shape.Rectangle;
 
 /**
  * Ball is a Projectile that has a circular shape and bounces off other Sprites during collisions.
+ *
  * @author Tyler Feldman
  * @see Projectile
  */
@@ -16,10 +17,11 @@ public class Ball extends Projectile {
 
   /**
    * Constructor for Ball.
-   * @param radius Radius of the Circle.
+   *
+   * @param radius   Radius of the Circle.
    * @param position Point2D initial position of the center of the Ball.
    * @param velocity Point2D initial velocity for the ball.
-   * @param color Color of the Circle.
+   * @param color    Color of the Circle.
    */
   public Ball(double radius, Point2D position, Point2D velocity, Color color) {
     // TODO: handle discrepancy between top left position and center position, since
@@ -33,7 +35,8 @@ public class Ball extends Projectile {
   /**
    * Handles collision with another Sprite. Bounces off other Sprites. Bounces off Paddles at an
    * angle based on where the Ball collides with the Paddle.
-   * @param sprite Other sprite that is colliding with this Sprite.
+   *
+   * @param sprite           Other sprite that is colliding with this Sprite.
    * @param gameWorldManager GameWorldManager object for the game.
    */
   public void handleCollisionWith(Sprite sprite, GameWorldManager gameWorldManager) {
@@ -89,9 +92,10 @@ public class Ball extends Projectile {
   }
 
   /**
-   * Update the Ball. Update position based on velocity. Check if the ball has gone below
-   * the screen and if so then decrement lives.
-   * @param time Elapsed time since last frame.
+   * Update the Ball. Update position based on velocity. Check if the ball has gone below the screen
+   * and if so then decrement lives.
+   *
+   * @param time             Elapsed time since last frame.
    * @param gameWorldManager GameWorldManager for the game.
    */
   @Override
@@ -105,6 +109,7 @@ public class Ball extends Projectile {
 
   /**
    * Checks if the Ball is below the screen.
+   *
    * @return If the Ball is below the screen.
    */
   public boolean isBelowScreen() {
@@ -113,6 +118,7 @@ public class Ball extends Projectile {
 
   /**
    * Gets radius of the ball.
+   *
    * @return radius of the ball as a double.
    */
   public double getRadius() {

@@ -9,12 +9,14 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 /**
- * GameWorldManager handles all within-game logic. This includes initializing the levels,
- * handling when the player loses or wins, and handling the Sprites through the SpriteManager
- * contained in this class.
+ * GameWorldManager handles all within-game logic. This includes initializing the levels, handling
+ * when the player loses or wins, and handling the Sprites through the SpriteManager contained in
+ * this class.
+ *
  * @author Tyler Feldman
  */
 public class GameWorldManager {
+
   public static final int PADDLE_WIDTH = 40;
   public static final int PADDLE_HEIGHT = 5;
   public static final double WALL_WIDTH = 10;
@@ -33,8 +35,9 @@ public class GameWorldManager {
 
   /**
    * Constructor for GameWorldManager.
+   *
    * @param rootNode Group root node for the game.
-   * @param scene Scene for the game.
+   * @param scene    Scene for the game.
    */
   public GameWorldManager(Group rootNode, Scene scene, Breakout breakout) {
     myScene = scene;
@@ -47,6 +50,7 @@ public class GameWorldManager {
 
   /**
    * Get the SpriteManager for the game.
+   *
    * @return SpriteManager for the game.
    */
   public SpriteManager getSpriteManager() {
@@ -55,6 +59,7 @@ public class GameWorldManager {
 
   /**
    * Get the Player.
+   *
    * @return Player object for the current player.
    */
   public Player getPlayer() {
@@ -63,6 +68,7 @@ public class GameWorldManager {
 
   /**
    * Update active sprites.
+   *
    * @param elapsedTime Time elapsed since last frame.
    */
   public void updateSprites(double elapsedTime, GameWorldManager gameWorldManager) {
@@ -102,7 +108,8 @@ public class GameWorldManager {
   private void initializePlayer() {
     Point2D paddleStartingPosition = new Point2D(myScene.getWidth() / 2,
         myScene.getHeight() - PADDLE_HEIGHT - 30);
-    myPlayer = new Player(PADDLE_WIDTH, PADDLE_HEIGHT, paddleStartingPosition, Color.BLACK, 3.5, WALL_WIDTH,
+    myPlayer = new Player(PADDLE_WIDTH, PADDLE_HEIGHT, paddleStartingPosition, Color.BLACK, 3.5,
+        WALL_WIDTH,
         myScene.getWidth() - WALL_WIDTH);
     spriteManager.addSprite(myPlayer);
   }
@@ -111,9 +118,9 @@ public class GameWorldManager {
    * Create counters for lives and score.
    */
   private void createCounters() {
-    scoreCounter = new Counter(new Point2D(WALL_WIDTH+10, myScene.getHeight()-10),
+    scoreCounter = new Counter(new Point2D(WALL_WIDTH + 10, myScene.getHeight() - 10),
         "Score: ", 0);
-    livesCounter = new Counter(new Point2D(myScene.getWidth() - 60, myScene.getHeight()-10),
+    livesCounter = new Counter(new Point2D(myScene.getWidth() - 60, myScene.getHeight() - 10),
         "Lives: ", 3);
 
     rootNode.getChildren().addAll(scoreCounter.getText(), livesCounter.getText());
@@ -138,14 +145,16 @@ public class GameWorldManager {
 
   /**
    * Checks if player has lost.
+   *
    * @return If the player has lost the game.
    */
   public boolean noMoreLives() {
-    return ((int)livesCounter.getValue() <= 0);
+    return ((int) livesCounter.getValue() <= 0);
   }
 
   /**
    * Checks if there are active blocks remaining in play.
+   *
    * @return true if no blocks are remaining
    */
   public boolean noBlocksRemaining() {
@@ -186,25 +195,28 @@ public class GameWorldManager {
 
   /**
    * Display message to user at the end of the game.
+   *
    * @param message String to display to user.
    */
   public void displayGameEndMessage(String message) {
-    Text text = new Text(Breakout.SIZE/2-60, Breakout.SIZE/2, message);
+    Text text = new Text(Breakout.SIZE / 2 - 60, Breakout.SIZE / 2, message);
     text.setFont(new Font(20));
     text.setTextAlignment(TextAlignment.LEFT);
     rootNode.getChildren().add(text);
   }
 
   /**
-   * Create a ball moving upwards from the center of the Player. If the number of balls in
-   * play is already at a maximum, do not create a new ball.
+   * Create a ball moving upwards from the center of the Player. If the number of balls in play is
+   * already at a maximum, do not create a new ball.
    */
   public void spawnBallFromPlayerPosition() {
-    if (spriteManager.getNumBallsInPlay() >= NUM_BASIC_BALLS_ALLOWED_IN_PLAY) return;
+    if (spriteManager.getNumBallsInPlay() >= NUM_BASIC_BALLS_ALLOWED_IN_PLAY) {
+      return;
+    }
 
     Ball ball = new Ball(BALL_RADIUS,
-        new Point2D(myPlayer.getPosition().getX()+ myPlayer.getWidth()/2,
-            myPlayer.getPosition().getY()-BALL_RADIUS),
+        new Point2D(myPlayer.getPosition().getX() + myPlayer.getWidth() / 2,
+            myPlayer.getPosition().getY() - BALL_RADIUS),
         new Point2D(0, -BALL_SPEED),
         Color.BLACK);
     getSpriteManager().addSprite(ball);

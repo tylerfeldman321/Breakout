@@ -6,6 +6,7 @@ import javafx.scene.paint.Color;
 
 /**
  * LevelGenerator creates breakout levels, including the layout of blocks and walls.
+ *
  * @author Tyler Feldman
  */
 public class LevelGenerator {
@@ -15,8 +16,9 @@ public class LevelGenerator {
 
   /**
    * Constructor for LevelGenerator.
+   *
    * @param spriteManager SpriteManager used for the game.
-   * @param scene Scene for the game.
+   * @param scene         Scene for the game.
    */
   public LevelGenerator(SpriteManager spriteManager, Scene scene) {
     this.spriteManager = spriteManager;
@@ -25,13 +27,14 @@ public class LevelGenerator {
 
   /**
    * Generate Block objects and Wall objects for a full level of breakout.
-   * @param numColumns Number of Block objects horizontally.
-   * @param numRows Number of Block objects vertically.
-   * @param blockHeight Height of each Block.
+   *
+   * @param numColumns             Number of Block objects horizontally.
+   * @param numRows                Number of Block objects vertically.
+   * @param blockHeight            Height of each Block.
    * @param horizontalBlockSpacing Horizontal space between each Block object.
-   * @param verticalBlockSpacing Vertical space between each Block object.
-   * @param wallWidth Width of the Wall objects on the top, left, and right sides.
-   * @param emptySpaceHeight Amount of empty space above the top row of Block objects.
+   * @param verticalBlockSpacing   Vertical space between each Block object.
+   * @param wallWidth              Width of the Wall objects on the top, left, and right sides.
+   * @param emptySpaceHeight       Amount of empty space above the top row of Block objects.
    */
   public void generateFullLevel(int numColumns, int numRows, double blockHeight,
       double horizontalBlockSpacing, double verticalBlockSpacing, double wallWidth,
@@ -61,6 +64,7 @@ public class LevelGenerator {
 
   /**
    * Create walls on the left, right, and top sides of the screen.
+   *
    * @param wallWidth Width of the walls.
    */
   public void generateOuterWalls(double wallWidth) {

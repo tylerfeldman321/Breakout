@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * SpriteManager handles the sprites that are active in the game. It keeps track of all projectiles,
  * and blocks that are active. It also has functions for checking and handling collisions.
+ *
  * @author Tyler Feldman
  */
 public class SpriteManager {
@@ -28,6 +29,7 @@ public class SpriteManager {
 
   /**
    * Constructor for SpriteManager.
+   *
    * @param rootNode Group root for the scene.
    */
   public SpriteManager(Group rootNode, GameWorldManager gameWorldManager) {
@@ -37,6 +39,7 @@ public class SpriteManager {
 
   /**
    * Updates all sprites that are active.
+   *
    * @param elapsedTime double time elapsed since last frame.
    */
   public void updateSprites(double elapsedTime, GameWorldManager gameWorldManager) {
@@ -58,6 +61,7 @@ public class SpriteManager {
 
   /**
    * Adds List of sprites to the List of active sprites.
+   *
    * @param sprites List of Sprites.
    */
   public void addSprites(List<Sprite> sprites) {
@@ -68,6 +72,7 @@ public class SpriteManager {
 
   /**
    * Adds a variable number of Sprite objects to the List of active sprites.
+   *
    * @param sprites Variable number of Sprite objects.
    */
   public void addSprites(Sprite... sprites) {
@@ -76,6 +81,7 @@ public class SpriteManager {
 
   /**
    * Adds a Sprite to the List of active Sprite objects.
+   *
    * @param sprite Sprite to add.
    */
   public void addSprite(Sprite sprite) {
@@ -85,6 +91,7 @@ public class SpriteManager {
 
   /**
    * Add Sprite to children of root node.
+   *
    * @param sprite Sprite to add to root node children.
    */
   public void addSpriteToRootNode(Sprite sprite) {
@@ -93,13 +100,16 @@ public class SpriteManager {
 
   /**
    * Add Sprite to the SpriteManager lists.
+   *
    * @param sprite Sprite to add.
    */
   public void addSpriteToSpriteManagerLists(Sprite sprite) {
     sprites.add(sprite);
     if (sprite instanceof Projectile) {
       projectiles.add((Projectile) sprite);
-      if (sprite instanceof Ball) numBallsInPlay++;
+      if (sprite instanceof Ball) {
+        numBallsInPlay++;
+      }
     } else if (sprite instanceof Block) {
       blocks.add((Block) sprite);
     }
@@ -107,17 +117,21 @@ public class SpriteManager {
 
   /**
    * Remove List of Sprite objects from active sprites.
+   *
    * @param sprites List of Sprite objects to remove.
    */
   public void removeSprites(List<Sprite> sprites) {
     for (Sprite sprite : sprites) {
-      if (sprite instanceof Block) numBlocksToBeRemoved++;
+      if (sprite instanceof Block) {
+        numBlocksToBeRemoved++;
+      }
       spritesToBeRemoved.add(sprite);
     }
   }
 
   /**
    * Removes a variable number of Sprite objects from active sprites.
+   *
    * @param sprites
    */
   public void removeSprites(Sprite... sprites) {
@@ -126,6 +140,7 @@ public class SpriteManager {
 
   /**
    * Remove Sprite from the active sprites.
+   *
    * @param sprite Sprite to remove.
    */
   private void removeSprite(Sprite sprite) {
@@ -135,6 +150,7 @@ public class SpriteManager {
 
   /**
    * Remove a Sprite from the list of children of the root node.
+   *
    * @param sprite Sprite to remove.
    */
   public void removeSpriteFromRootNode(Sprite sprite) {
@@ -143,13 +159,16 @@ public class SpriteManager {
 
   /**
    * Remove Sprite from SpriteManager internal lists.
+   *
    * @param sprite
    */
   public void removeSpriteFromSpriteManagerLists(Sprite sprite) {
     sprites.remove(sprite);
     if (sprite instanceof Projectile) {
       projectiles.remove((Projectile) sprite);
-      if (sprite instanceof Ball) numBallsInPlay--;
+      if (sprite instanceof Ball) {
+        numBallsInPlay--;
+      }
     } else if (sprite instanceof Block) {
       blocks.remove((Block) sprite);
     }
@@ -174,9 +193,10 @@ public class SpriteManager {
   }
 
   /**
-   * Check if collision has occurred, handle collision between Sprite and Projectile, and return
-   * if a collision has occurred.
-   * @param sprite Sprite object that has collided with projectile.
+   * Check if collision has occurred, handle collision between Sprite and Projectile, and return if
+   * a collision has occurred.
+   *
+   * @param sprite     Sprite object that has collided with projectile.
    * @param projectile Projectile object that has collided with sprite.
    * @return Whether a collision has occurred.
    */
@@ -195,6 +215,7 @@ public class SpriteManager {
 
   /**
    * Checks if two Sprite objects are intersecting.
+   *
    * @param spriteA First Sprite object.
    * @param spriteB Second Sprite object.
    * @return Whether the two Sprite objects have collided.
@@ -206,6 +227,7 @@ public class SpriteManager {
 
   /**
    * Checks if there are no active Block objects remaining.
+   *
    * @return true if no active Block objects remaining.
    */
   public boolean noBlocksRemaining() {
@@ -223,6 +245,7 @@ public class SpriteManager {
 
   /**
    * Get number of balls in play.
+   *
    * @return Number of balls in play.
    */
   public int getNumBallsInPlay() {
