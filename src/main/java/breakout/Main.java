@@ -14,7 +14,7 @@ import javafx.util.Duration;
 
 
 /**
- *
+ * Main class for breakout game. Sets the game up and launches it.
  * @author Tyler Feldman
  */
 public class Main extends Application {
