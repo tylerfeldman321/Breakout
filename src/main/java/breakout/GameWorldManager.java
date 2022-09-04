@@ -15,6 +15,7 @@ public class GameWorldManager {
   public static final int PADDLE_WIDTH = 40;
   public static final int PADDLE_HEIGHT = 5;
   public static final double WALL_WIDTH = 10;
+  public static final double SCORE_PER_BLOCK = 100;
   private SpriteManager spriteManager;
   private LevelGenerator levelGenerator;
   private Counter scoreCounter;
@@ -101,5 +102,12 @@ public class GameWorldManager {
         "Lives: ", 3);
 
     rootNode.getChildren().addAll(scoreCounter.getText(), livesCounter.getText());
+  }
+
+  /**
+   * Increment the score Counter.
+   */
+  public void incrementScore() {
+    scoreCounter.add(SCORE_PER_BLOCK);
   }
 }
