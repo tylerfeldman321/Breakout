@@ -110,4 +110,11 @@ public class GameWorldManager {
   public void incrementScore() {
     scoreCounter.add(SCORE_PER_BLOCK);
   }
+
+  /**
+   * Decrement the lives Counter;
+   */
+  public void decrementLives() {
+    livesCounter.add(-1);
+  }
 }
