@@ -1,10 +1,12 @@
 package breakout;
 
-import javafx.application.Application;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 
 /**
  * GameWorldManager handles all within-game logic. This includes initializing the levels,
@@ -160,21 +162,29 @@ public class GameWorldManager {
    * Handle event when player has won.
    */
   public void playerWins() {
-    stopGame();
+    stopGame("You Win!!!");
   }
 
   /**
    * Handle event when player has lost.
    */
   public void playerLoses() {
-    stopGame();
+    stopGame("You lose :(");
   }
 
-
   /**
-   * Stop the game.
+   * Clear all sprites from view, display end message, and stop game.
    */
-  public void stopGame() {
+  public void stopGame(String message) {
+    spriteManager.clearAllSpritesFromView();
+    displayGameEndMessage(message);
     this.breakout.stopGame();
+  }
+
+  public void displayGameEndMessage(String message) {
+    Text text = new Text(Breakout.SIZE/2-60, Breakout.SIZE/2, message);
+    text.setFont(new Font(20));
+    text.setTextAlignment(TextAlignment.LEFT);
+    rootNode.getChildren().add(text);
   }
 }

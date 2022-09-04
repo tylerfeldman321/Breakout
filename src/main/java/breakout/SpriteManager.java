@@ -208,4 +208,13 @@ public class SpriteManager {
   public boolean noBlocksRemaining() {
     return (blocks.size() - numBlocksToBeRemoved == 0);
   }
+
+  /**
+   * Clears all sprites Shape objects from the viewing scene.
+   */
+  public void clearAllSpritesFromView() {
+    for (Sprite sprite : sprites) {
+      rootNode.getChildren().remove(sprite.getShape());
+    }
+  }
 }
