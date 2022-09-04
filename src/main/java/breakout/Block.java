@@ -34,6 +34,7 @@ public class Block extends Sprite {
   public void handleCollisionWith(Sprite sprite, GameWorldManager gameWorldManager) {
     gameWorldManager.incrementScore();
     this.handleDeath(gameWorldManager);
+    gameWorldManager.checkIfPlayerHasWon();
   }
 
   /**
