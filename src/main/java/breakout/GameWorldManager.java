@@ -1,5 +1,6 @@
 package breakout;
 
+import java.util.Random;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -24,6 +25,8 @@ public class GameWorldManager {
   public static final double SCORE_PER_BLOCK = 100;
   public static final double LIVES_REMAINING_BASE_MULTIPLIER = 1;
   public static final double LIVES_REMAINING_MULTIPLIER_FACTOR = 0.1;
+  public static final double MAX_BALL_LAUNCH_ANGLE = 100;
+  public static final double MIN_BALL_LAUNCH_ANGLE = 80;
   public static final double BALL_RADIUS = 5;
   public static final double BALL_SPEED = 150;
   public static final int NUM_BASIC_BALLS_ALLOWED_IN_PLAY = 1;
@@ -244,11 +247,27 @@ public class GameWorldManager {
       return;
     }
 
+    double launchAngle = getRandomBallLaunchAngle();
+
     Ball ball = new Ball(BALL_RADIUS,
         new Point2D(myPlayer.getPosition().getX() + myPlayer.getWidth() / 2 - BALL_RADIUS,
             myPlayer.getPosition().getY() - 2 * BALL_RADIUS),
-        new Point2D(0, -BALL_SPEED),
+        new Point2D(0, 0),
         Color.BLACK);
+    ball.setVelocity(launchAngle, BALL_SPEED);
     getSpriteManager().addSprite(ball);
+  }
+
+  /**
+   * Generates a random angle uniformly distributed between MIN_BALL_LAUNCH_ANGLE and
+   * MAX_BALL_LAUNCH_ANGLE
+   *
+   * @return double angle to launch the ball.
+   */
+  public double getRandomBallLaunchAngle() {
+    Random randomAngleGenerator = new Random();
+    double launchAngle = MIN_BALL_LAUNCH_ANGLE + randomAngleGenerator.nextDouble() *
+        (MAX_BALL_LAUNCH_ANGLE - MIN_BALL_LAUNCH_ANGLE);
+    return launchAngle;
   }
 }
