@@ -17,7 +17,7 @@ import javafx.util.Duration;
  * Main class for breakout game. Sets the game up and launches it.
  * @author Tyler Feldman
  */
-public class Main extends Application {
+public class Breakout extends Application {
   public static final int FRAMES_PER_SECOND = 60;
   public static final double SECOND_DELAY = 1.0 / FRAMES_PER_SECOND;
   public static final double SIZE = 400;
@@ -45,7 +45,7 @@ public class Main extends Application {
   @Override
   public void start(Stage stage) {
     myScene = setupScene(SIZE, SIZE, BACKGROUND);
-    gameWorldManager = new GameWorldManager(rootNode, myScene);
+    gameWorldManager = new GameWorldManager(rootNode, myScene, this);
 
     stage.setScene(myScene);
     stage.setTitle(TITLE);

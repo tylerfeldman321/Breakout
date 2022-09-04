@@ -1,5 +1,6 @@
 package breakout;
 
+import javafx.application.Application;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -23,15 +24,17 @@ public class GameWorldManager {
   private Scene myScene;
   private Group rootNode;
   private Player myPlayer;
+  private Breakout breakout;
 
   /**
    * Constructor for GameWorldManager.
    * @param rootNode Group root node for the game.
    * @param scene Scene for the game.
    */
-  public GameWorldManager(Group rootNode, Scene scene) {
+  public GameWorldManager(Group rootNode, Scene scene, Breakout breakout) {
     myScene = scene;
     this.rootNode = rootNode;
+    this.breakout = breakout;
     spriteManager = new SpriteManager(rootNode, this);
     levelGenerator = new LevelGenerator(spriteManager, myScene);
     setupGame();

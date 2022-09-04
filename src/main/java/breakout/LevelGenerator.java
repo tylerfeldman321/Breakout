@@ -37,7 +37,7 @@ public class LevelGenerator {
       double horizontalBlockSpacing, double verticalBlockSpacing, double wallWidth,
       double emptySpaceHeight) {
 
-    double levelWidth = Main.SIZE - 2 * wallWidth;
+    double levelWidth = Breakout.SIZE - 2 * wallWidth;
     double blockCellWidth = levelWidth / numColumns;
     double blockWidth = blockCellWidth - horizontalBlockSpacing;
     double blockCellHeight = blockHeight + verticalBlockSpacing;

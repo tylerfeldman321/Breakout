@@ -108,6 +108,6 @@ public class Ball extends Projectile {
    * @return If the Ball is below the screen.
    */
   public boolean isBelowScreen() {
-    return (getPosition().getY() >= Main.SIZE);
+    return (getPosition().getY() >= Breakout.SIZE);
   }
 }
