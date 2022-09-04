@@ -6,6 +6,9 @@ import javafx.scene.shape.Rectangle;
 
 /**
  * Powerup that gives the player an extra life.
+ *
+ * @author Tyler Feldman
+ * @see Powerup
  */
 public class ExtraLifePowerup extends Powerup {
 

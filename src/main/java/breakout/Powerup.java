@@ -5,6 +5,8 @@ import javafx.scene.shape.Shape;
 
 /**
  * Abstract class for any powerup.
+ *
+ * @author Tyler Feldman
  */
 public abstract class Powerup extends Sprite {
 
