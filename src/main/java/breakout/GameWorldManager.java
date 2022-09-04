@@ -69,6 +69,13 @@ public class GameWorldManager {
   }
 
   /**
+   * Clean up any sprites that have been declared dead.
+   */
+  public void cleanupSprites() {
+    spriteManager.cleanupSprites();
+  }
+
+  /**
    * Set up the game level, including the Player and the Block and Wall configuration.
    */
   public void setupGame() {

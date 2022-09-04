@@ -82,6 +82,7 @@ public class Main extends Application {
   private void step(double elapsedTime) {
     gameWorldManager.updateSprites(elapsedTime, gameWorldManager);
     gameWorldManager.checkCollisions();
+    gameWorldManager.cleanupSprites();
   }
 
   /**

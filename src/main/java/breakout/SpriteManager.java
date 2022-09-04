@@ -1,5 +1,6 @@
 package breakout;
 
+import java.util.HashSet;
 import javafx.scene.Group;
 import javafx.scene.shape.Shape;
 
@@ -17,6 +18,8 @@ public class SpriteManager {
   private List<Sprite> sprites = new ArrayList<>();
   private List<Projectile> projectiles = new ArrayList<>();
   private List<Block> blocks = new ArrayList<>();
+
+  private HashSet<Sprite> spritesToBeRemoved = new HashSet<>();
 
   private Group rootNode;
   private GameWorldManager gameWorldManager;
@@ -38,6 +41,16 @@ public class SpriteManager {
     for (Sprite sprite : sprites) {
       sprite.update(elapsedTime, gameWorldManager);
     }
+  }
+
+  /**
+   * Remove all sprites that are in the List spritesToBeRemoved.
+   */
+  public void cleanupSprites() {
+    for (Sprite sprite : spritesToBeRemoved) {
+      removeSprite(sprite);
+    }
+    spritesToBeRemoved.clear();
   }
 
   /**
@@ -93,9 +106,7 @@ public class SpriteManager {
    * @param sprites List of Sprite objects to remove.
    */
   public void removeSprites(List<Sprite> sprites) {
-    for (Sprite sprite : sprites) {
-      removeSprite(sprite);
-    }
+    spritesToBeRemoved.addAll(sprites);
   }
 
   /**
@@ -110,7 +121,7 @@ public class SpriteManager {
    * Remove Sprite from the active sprites.
    * @param sprite Sprite to remove.
    */
-  public void removeSprite(Sprite sprite) {
+  private void removeSprite(Sprite sprite) {
     removeSpriteFromRootNode(sprite);
     removeSpriteFromSpriteManagerLists(sprite);
   }

@@ -176,7 +176,7 @@ public abstract class Sprite {
    * @param gameWorldManager GameWorldManager for the game.
    */
   public void handleDeath(GameWorldManager gameWorldManager) {
-    gameWorldManager.getSpriteManager().removeSprite(this);
+    gameWorldManager.getSpriteManager().removeSprites(this);
   }
 
   /**
