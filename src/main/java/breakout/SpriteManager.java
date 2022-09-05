@@ -18,7 +18,7 @@ import java.util.List;
 public class SpriteManager {
 
   private List<Sprite> sprites = new ArrayList<>();
-  private List<Projectile> projectiles = new ArrayList<>();
+  private List<Sprite> movingSprites = new ArrayList<>();
   private List<Block> blocks = new ArrayList<>();
 
   private HashSet<Sprite> spritesToBeRemoved = new HashSet<>();
@@ -107,7 +107,7 @@ public class SpriteManager {
   public void addSpriteToSpriteManagerLists(Sprite sprite) {
     sprites.add(sprite);
     if (sprite instanceof Projectile) {
-      projectiles.add((Projectile) sprite);
+      movingSprites.add(sprite);
       if (sprite instanceof Ball) {
         numBallsInPlay++;
       }
@@ -166,7 +166,7 @@ public class SpriteManager {
   public void removeSpriteFromSpriteManagerLists(Sprite sprite) {
     sprites.remove(sprite);
     if (sprite instanceof Projectile) {
-      projectiles.remove((Projectile) sprite);
+      movingSprites.remove(sprite);
       if (sprite instanceof Ball) {
         numBallsInPlay--;
       }
@@ -179,14 +179,14 @@ public class SpriteManager {
    * Check for collisions between Projectile objects and Sprite objects.
    */
   protected void checkCollisions() {
-    Projectile projectile;
+    Sprite movingSprite;
     Sprite sprite;
 
-    for (int i = 0; i < projectiles.size(); i++) {
-      projectile = projectiles.get(i);
+    for (int i = 0; i < movingSprites.size(); i++) {
+      movingSprite = movingSprites.get(i);
       for (int j = 0; j < sprites.size(); j++) {
         sprite = sprites.get(j);
-        if (spritesHaveCollided(sprite, projectile)) {
+        if (spritesHaveCollided(sprite, movingSprite)) {
           break;
         }
       }
@@ -197,18 +197,18 @@ public class SpriteManager {
    * Check if collision has occurred, handle collision between Sprite and Projectile, and return if
    * a collision has occurred.
    *
-   * @param sprite     Sprite object that has collided with projectile.
-   * @param projectile Projectile object that has collided with sprite.
+   * @param spriteA     Sprite object that has collided with projectile.
+   * @param spriteB Projectile object that has collided with sprite.
    * @return Whether a collision has occurred.
    */
-  public boolean spritesHaveCollided(Sprite sprite, Projectile projectile) {
-    if (sprite == projectile) {
+  public boolean spritesHaveCollided(Sprite spriteA, Sprite spriteB) {
+    if (spriteA == spriteB) {
       return false;
     }
 
-    if (isIntersecting(sprite, projectile)) {
-      projectile.handleCollisionWith(sprite, gameWorldManager);
-      sprite.handleCollisionWith(projectile, gameWorldManager);
+    if (isIntersecting(spriteA, spriteB)) {
+      spriteA.handleCollisionWith(spriteB, gameWorldManager);
+      spriteB.handleCollisionWith(spriteA, gameWorldManager);
       return true;
     }
     return false;
