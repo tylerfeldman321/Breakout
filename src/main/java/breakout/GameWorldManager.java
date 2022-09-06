@@ -18,6 +18,8 @@ import javafx.scene.text.TextAlignment;
  */
 public class GameWorldManager {
 
+  public static final double PLAYER_STARTING_POSITION_X = Breakout.SIZE / 2;
+  public static final double PLAYER_STARTING_POSITION_Y = Breakout.SIZE - 30;
   public static final int PADDLE_WIDTH = 40;
   public static final int PADDLE_HEIGHT = 5;
   public static final double WALL_WIDTH = 10;
@@ -119,8 +121,8 @@ public class GameWorldManager {
    * Initialize the Player in the middle of the screen, near the bottom.
    */
   private void initializePlayer() {
-    Point2D paddleStartingPosition = new Point2D(myScene.getWidth() / 2,
-        myScene.getHeight() - PADDLE_HEIGHT - 30);
+    Point2D paddleStartingPosition = new Point2D(PLAYER_STARTING_POSITION_X,
+        PLAYER_STARTING_POSITION_Y);
     myPlayer = new Player(PADDLE_WIDTH,
         PADDLE_HEIGHT,
         paddleStartingPosition,
