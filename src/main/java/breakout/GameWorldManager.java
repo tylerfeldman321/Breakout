@@ -121,16 +121,31 @@ public class GameWorldManager {
    * Initialize the Player in the middle of the screen, near the bottom.
    */
   private void initializePlayer() {
-    Point2D paddleStartingPosition = new Point2D(PLAYER_STARTING_POSITION_X,
-        PLAYER_STARTING_POSITION_Y);
     myPlayer = new Player(PADDLE_WIDTH,
         PADDLE_HEIGHT,
-        paddleStartingPosition,
+        new Point2D(0, 0),
         Color.BLACK,
         PLAYER_SPEED,
         WALL_WIDTH,
         myScene.getWidth() - WALL_WIDTH);
+    resetPlayerPosition();
     spriteManager.addSprite(myPlayer);
+  }
+
+  /**
+   * Reset the Player object's position to its default starting position.
+   */
+  public void resetPlayerPosition() {
+    myPlayer.setPosition(getPlayerStartingPosition());
+  }
+
+  /**
+   * Get default Player starting position.
+   *
+   * @return Default Player starting position.
+   */
+  private Point2D getPlayerStartingPosition() {
+    return new Point2D(PLAYER_STARTING_POSITION_X, PLAYER_STARTING_POSITION_Y);
   }
 
   /**
