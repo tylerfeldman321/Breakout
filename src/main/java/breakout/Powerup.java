@@ -23,8 +23,10 @@ public abstract class Powerup extends Sprite {
    */
   @Override
   public void handleCollisionWith(Sprite sprite, GameWorldManager gameWorldManager) {
-    acquirePowerup(gameWorldManager);
-    handleDeath(gameWorldManager);
+    if (sprite instanceof Player) {
+      acquirePowerup(gameWorldManager);
+      handleDeath(gameWorldManager);
+    }
   }
 
   /**
