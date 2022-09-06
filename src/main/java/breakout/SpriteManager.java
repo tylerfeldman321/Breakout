@@ -228,4 +228,13 @@ public class SpriteManager {
   public void checkCollisions() {
     this.collisionManager.checkCollisions();
   }
+
+  /**
+   * Remove all moving sprites from the scene.
+   */
+  public void clearAllMovingSprites() {
+    for (Sprite movingSprite : movingSprites) {
+      removeSprites(movingSprite);
+    }
+  }
 }
