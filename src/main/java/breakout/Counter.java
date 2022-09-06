@@ -77,4 +77,13 @@ public class Counter {
   public double getValue() {
     return this.value;
   }
+
+  /**
+   * Get value of the Counter as an integer.
+   *
+   * @return value of the Counter as an integer.
+   */
+  public int getValueInt() {
+    return (int) this.value;
+  }
 }
