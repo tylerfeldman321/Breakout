@@ -133,6 +133,14 @@ public class GameWorldManager {
   }
 
   /**
+   * Resets player position and clears all moving sprites.
+   */
+  public void resetPlayerAndProjectiles() {
+    resetPlayerPosition();
+    spriteManager.clearAllProjectiles();
+  }
+
+  /**
    * Reset the Player object's position to its default starting position.
    */
   public void resetPlayerPosition() {
