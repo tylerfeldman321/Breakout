@@ -106,7 +106,7 @@ public class SpriteManager {
    */
   public void addSpriteToSpriteManagerLists(Sprite sprite) {
     sprites.add(sprite);
-    if (sprite instanceof Projectile) {
+    if (sprite.isAMovingSprite()) {
       movingSprites.add(sprite);
       if (sprite instanceof Ball) {
         numBallsInPlay++;
@@ -165,7 +165,7 @@ public class SpriteManager {
    */
   public void removeSpriteFromSpriteManagerLists(Sprite sprite) {
     sprites.remove(sprite);
-    if (sprite instanceof Projectile) {
+    if (sprite.isAMovingSprite()) {
       movingSprites.remove(sprite);
       if (sprite instanceof Ball) {
         numBallsInPlay--;

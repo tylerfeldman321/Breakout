@@ -27,10 +27,10 @@ public class Paddle extends Sprite {
    * @param position Top left position of the Paddle.
    * @param color    Color for the fill of the Rectangle.
    */
-  public Paddle(double width, double height, Point2D position, Color color) {
+  public Paddle(double width, double height, Point2D position, Color color, boolean isAMovingSprite) {
     super(new Rectangle(width, height, color),
         position,
-        new Point2D(0, 0));
+        new Point2D(0, 0), isAMovingSprite);
     setRoundedPaddleCorners(height);
     this.width = width;
     this.height = height;

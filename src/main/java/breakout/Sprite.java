@@ -20,6 +20,7 @@ public abstract class Sprite {
   private Shape shape;
   private Point2D position;
   private Point2D velocity;
+  private boolean isAMovingSprite;
 
   /**
    * Creates a Sprite object.
@@ -28,11 +29,13 @@ public abstract class Sprite {
    * @param position initial position of the sprite.
    * @param velocity initial velocity of the sprite.
    */
-  public Sprite(Shape shape, Point2D position, Point2D velocity) {
+  public Sprite(Shape shape, Point2D position, Point2D velocity, boolean isAMovingSprite) {
     image = null;
     this.shape = shape;
-    setAllPositions(position);
     this.velocity = velocity;
+    this.isAMovingSprite = isAMovingSprite;
+
+    setAllPositions(position);
   }
 
   /**
@@ -215,5 +218,14 @@ public abstract class Sprite {
   public void bounceY() {
     Point2D newVelocity = new Point2D(this.getVelocity().getX(), -this.getVelocity().getY());
     this.setVelocity(newVelocity);
+  }
+
+  /**
+   * Returns if the Sprite object is a moving Sprite.
+   *
+   * @return if the Sprite object is a moving Sprite.
+   */
+  public boolean isAMovingSprite() {
+    return this.isAMovingSprite;
   }
 }

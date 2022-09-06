@@ -31,7 +31,7 @@ public class Player extends Paddle {
   public Player(double width, double height, Point2D position, Color color, double speed,
       double xMin,
       double xMax) {
-    super(width, height, position, color);
+    super(width, height, position, color, false);
     playerSpeed = speed;
     this.xMin = xMin;
     this.xMax = xMax;

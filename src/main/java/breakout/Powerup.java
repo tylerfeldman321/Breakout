@@ -11,7 +11,7 @@ import javafx.scene.shape.Shape;
 public abstract class Powerup extends Sprite {
 
   public Powerup(Shape shape, Point2D position, Point2D velocity) {
-    super(shape, position, velocity);
+    super(shape, position, velocity, true);
   }
 
   /**

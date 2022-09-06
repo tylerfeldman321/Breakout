@@ -19,7 +19,7 @@ public abstract class Projectile extends Sprite {
    * @param velocity Point2D intial velocity.
    */
   public Projectile(Shape shape, Point2D position, Point2D velocity) {
-    super(shape, position, velocity);
+    super(shape, position, velocity, true);
   }
 
   /**
