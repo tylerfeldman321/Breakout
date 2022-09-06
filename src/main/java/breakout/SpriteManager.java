@@ -27,6 +27,7 @@ public class SpriteManager {
 
   private Group rootNode;
   private GameWorldManager gameWorldManager;
+  private CollisionManager collisionManager;
 
   /**
    * Constructor for SpriteManager.
@@ -36,6 +37,7 @@ public class SpriteManager {
   public SpriteManager(Group rootNode, GameWorldManager gameWorldManager) {
     this.rootNode = rootNode;
     this.gameWorldManager = gameWorldManager;
+    this.collisionManager = new CollisionManager(gameWorldManager, this);
   }
 
   /**
@@ -176,57 +178,6 @@ public class SpriteManager {
   }
 
   /**
-   * Check for collisions between Projectile objects and Sprite objects.
-   */
-  protected void checkCollisions() {
-    Sprite movingSprite;
-    Sprite sprite;
-
-    for (int i = 0; i < movingSprites.size(); i++) {
-      movingSprite = movingSprites.get(i);
-      for (int j = 0; j < sprites.size(); j++) {
-        sprite = sprites.get(j);
-        if (spritesHaveCollided(sprite, movingSprite)) {
-          break;
-        }
-      }
-    }
-  }
-
-  /**
-   * Check if collision has occurred, handle collision between Sprite and Projectile, and return if
-   * a collision has occurred.
-   *
-   * @param spriteA     Sprite object that has collided with projectile.
-   * @param spriteB Projectile object that has collided with sprite.
-   * @return Whether a collision has occurred.
-   */
-  public boolean spritesHaveCollided(Sprite spriteA, Sprite spriteB) {
-    if (spriteA == spriteB) {
-      return false;
-    }
-
-    if (isIntersecting(spriteA, spriteB)) {
-      spriteA.handleCollisionWith(spriteB, gameWorldManager);
-      spriteB.handleCollisionWith(spriteA, gameWorldManager);
-      return true;
-    }
-    return false;
-  }
-
-  /**
-   * Checks if two Sprite objects are intersecting.
-   *
-   * @param spriteA First Sprite object.
-   * @param spriteB Second Sprite object.
-   * @return Whether the two Sprite objects have collided.
-   */
-  public boolean isIntersecting(Sprite spriteA, Sprite spriteB) {
-    Shape intersection = Shape.intersect(spriteA.getShape(), spriteB.getShape());
-    return (intersection.getBoundsInLocal().getWidth() != -1);  // From example_animation
-  }
-
-  /**
    * Checks if there are no active Block objects remaining.
    *
    * @return true if no active Block objects remaining.
@@ -251,5 +202,30 @@ public class SpriteManager {
    */
   public int getNumBallsInPlay() {
     return numBallsInPlay;
+  }
+
+  /**
+   * Get List of Sprite objects in the game.
+   *
+   * @return List of Sprite objects in the game.
+   */
+  public List<Sprite> getSprites() {
+    return this.sprites;
+  }
+
+  /**
+   * Get the list of Sprite objects that are moving.
+   *
+   * @return List of Sprite objects that are moving in the scene.
+   */
+  public List<Sprite> getMovingSprites() {
+    return this.movingSprites;
+  }
+
+  /**
+   * Check for collisions between sprites.
+   */
+  public void checkCollisions() {
+    this.collisionManager.checkCollisions();
   }
 }
