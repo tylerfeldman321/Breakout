@@ -57,6 +57,17 @@ public class Ball extends Projectile {
     Rectangle ballBBoxRect = getBoundingBoxRect();
     Rectangle collidingBBoxRect = sprite.getBoundingBoxRect();
 
+    if (sprite instanceof Paddle) {
+      collideWithPaddle(ballBBoxRect, collidingBBoxRect);
+    } else {
+      bounceOffOtherSprite(ballBBoxRect, collidingBBoxRect);
+    }
+  }
+
+  /**
+   * Bounces this Ball object off another Sprite
+   */
+  public void bounceOffOtherSprite(Rectangle ballBBoxRect, Rectangle collidingBBoxRect) {
     double intersectionUpper = Math.max(collidingBBoxRect.getY(),
         ballBBoxRect.getY());
     double intersectionLower = Math.min(
@@ -75,21 +86,24 @@ public class Ball extends Projectile {
     } else {
       this.bounceY();
     }
+  }
 
-    if (sprite instanceof Paddle) {
-      double centerXBall = ballBBoxRect.getX() + radius;
+  /**
+   * Handle collision with Paddle
+   */
+  public void collideWithPaddle(Rectangle ballBBoxRect, Rectangle paddleBBoxRect) {
+    double centerXBall = ballBBoxRect.getX() + radius;
 
-      double differenceInXPositions = centerXBall - collidingBBoxRect.getX();
-      double proportionalLocationAlongPaddle =
-          differenceInXPositions / collidingBBoxRect.getWidth();
-      double proportionalLocationAlongPaddleClamped = Math.max(0,
-          Math.min(1, proportionalLocationAlongPaddle));
+    double differenceInXPositions = centerXBall - paddleBBoxRect.getX();
+    double proportionalLocationAlongPaddle =
+        differenceInXPositions / paddleBBoxRect.getWidth();
+    double proportionalLocationAlongPaddleClamped = Math.max(0,
+        Math.min(1, proportionalLocationAlongPaddle));
 
-      double angle =
-          Paddle.ANGLE_MIN + ((1 - proportionalLocationAlongPaddleClamped) * Paddle.ANGLE_RANGE);
+    double angle =
+        Paddle.ANGLE_MIN + ((1 - proportionalLocationAlongPaddleClamped) * Paddle.ANGLE_RANGE);
 
-      this.setVelocity(angle, this.getSpeed());
-    }
+    this.setVelocity(angle, this.getSpeed());
   }
 
   /**
