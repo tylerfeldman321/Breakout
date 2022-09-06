@@ -230,11 +230,12 @@ public class SpriteManager {
   }
 
   /**
-   * Remove all moving sprites from the scene.
+   * Remove all Projectile objects from the scene.
    */
-  public void clearAllMovingSprites() {
+  public void clearAllProjectiles() {
     for (Sprite movingSprite : movingSprites) {
-      removeSprites(movingSprite);
+      if (movingSprite instanceof Projectile)
+        removeSprites(movingSprite);
     }
   }
 }
