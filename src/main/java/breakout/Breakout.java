@@ -99,9 +99,7 @@ public class Breakout extends Application {
       gameWorldManager.getPlayer().moveRight();
     } else if (code == KeyCode.LEFT) {
       gameWorldManager.getPlayer().moveLeft();
-    }
-
-    if (code == KeyCode.SPACE) {
+    } else if (code == KeyCode.SPACE) {
       gameWorldManager.spawnBallFromPlayerPosition();
     }
   }
