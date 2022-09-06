@@ -101,6 +101,8 @@ public class Breakout extends Application {
       gameWorldManager.getPlayer().moveLeft();
     } else if (code == KeyCode.SPACE) {
       gameWorldManager.spawnBallFromPlayerPosition();
+    } else if (code == KeyCode.L) {
+      gameWorldManager.incrementLives();
     }
   }
 
