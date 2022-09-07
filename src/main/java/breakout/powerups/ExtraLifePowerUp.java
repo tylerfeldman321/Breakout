@@ -35,6 +35,11 @@ public class ExtraLifePowerUp extends PowerUp {
     gameWorldManager.incrementLives();
   }
 
+  /**
+   * Create copy of this object.
+   *
+   * @return Copy of this object.
+   */
   @Override
   public PowerUp copy() {
     return new ExtraLifePowerUp(this.length, this.getPosition(), this.getVelocity());
