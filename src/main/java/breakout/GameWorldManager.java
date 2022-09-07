@@ -33,6 +33,7 @@ public class GameWorldManager {
   public static final double BALL_SPEED = 150;
   public static final int NUM_BASIC_BALLS_ALLOWED_IN_PLAY = 1;
   private SpriteManager spriteManager;
+  private PowerUpGenerator powerUpGenerator;
   private LevelGenerator levelGenerator;
   private Counter scoreCounter;
   private Counter livesCounter;
@@ -303,5 +304,14 @@ public class GameWorldManager {
    */
   public int getScoreAsInt() {
     return this.scoreCounter.getValueInt();
+  }
+
+  /**
+   * Return the PowerUpGenerator object used for the game.
+   *
+   * @return PowerUpGenerator used for the game.
+   */
+  public PowerUpGenerator getPowerUpGenerator() {
+    return this.powerUpGenerator;
   }
 }
