@@ -115,7 +115,7 @@ public class Breakout extends Application {
    */
   public void startGame() {
     clearScene();
-    stopUserInput();
+    clearUserInputFunctions();
 
     gameWorldManager = new GameWorldManager(rootNode, myScene, this);
 
@@ -134,14 +134,14 @@ public class Breakout extends Application {
    */
   public void stopGame() {
     timeline.stop();
-    stopUserInput();
+    clearUserInputFunctions();
     highScoreManager.saveNewHighScores(gameWorldManager.getScoreAsInt());
   }
 
   /**
    * Stop user input.
    */
-  private void stopUserInput() {
+  private void clearUserInputFunctions() {
     myScene.setOnKeyPressed(null);
     myScene.setOnMouseClicked(null);
   }
