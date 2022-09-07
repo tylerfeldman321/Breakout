@@ -29,6 +29,7 @@ public class Breakout extends Application {
   private Group rootNode;
   private GameWorldManager gameWorldManager;
   private Timeline timeline;
+  private HighScoreManager highScoreManager = new HighScoreManager();
 
   public static void main(String[] args) {
     launch(args);
@@ -109,11 +110,13 @@ public class Breakout extends Application {
   }
 
   /**
-   * Stop the timeline.
+   * Stop the game.
+   * This includes stopping the timeline, stopping user input, and saving the high score.
    */
   public void stopGame() {
     timeline.stop();
     stopUserInput();
+    highScoreManager.saveNewHighScores(gameWorldManager.getScoreAsInt());
   }
 
   /**

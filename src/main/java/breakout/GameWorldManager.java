@@ -295,4 +295,13 @@ public class GameWorldManager {
         (MAX_BALL_LAUNCH_ANGLE - MIN_BALL_LAUNCH_ANGLE);
     return launchAngle;
   }
+
+  /**
+   * Get the current score.
+   *
+   * @return int for the current score.
+   */
+  public int getScoreAsInt() {
+    return this.scoreCounter.getValueInt();
+  }
 }
