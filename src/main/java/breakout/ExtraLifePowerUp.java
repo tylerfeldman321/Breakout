@@ -21,7 +21,7 @@ public class ExtraLifePowerUp extends PowerUp {
    * @param velocity Point2D initial velocity of the powerup.
    */
   public ExtraLifePowerUp(double length, Point2D position, Point2D velocity) {
-    super(new Rectangle(length, length, Color.GREEN), position, velocity);
+    super(length, length, Color.GREEN, position, velocity);
     this.length = length;
   }
 

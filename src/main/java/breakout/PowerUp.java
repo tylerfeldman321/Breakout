@@ -1,6 +1,8 @@
 package breakout;
 
 import javafx.geometry.Point2D;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
 /**
@@ -10,8 +12,8 @@ import javafx.scene.shape.Shape;
  */
 public abstract class PowerUp extends Sprite {
 
-  public PowerUp(Shape shape, Point2D position, Point2D velocity) {
-    super(shape, position, velocity, true);
+  public PowerUp(double width, double height, Color color, Point2D position, Point2D velocity) {
+    super(new Rectangle(width, height, color), position, velocity, true);
   }
 
   /**
