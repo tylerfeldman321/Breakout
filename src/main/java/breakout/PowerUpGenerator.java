@@ -10,10 +10,11 @@ public class PowerUpGenerator {
 
   public static final double POWER_UP_GENERATION_CHANCE = 0.5;
   public static final Point2D POWER_UP_VELOCITY = new Point2D(0, 100);
+  public static final double POWER_UP_RECTANGLE_SIZE = 10;
   private GameWorldManager gameWorldManager;
   private static final Random rand = new Random();
   private static final PowerUp[] powerUpList = {
-      new ExtraLifePowerUp(0, Point2D.ZERO, Point2D.ZERO)
+      new ExtraLifePowerUp(POWER_UP_RECTANGLE_SIZE, Point2D.ZERO, Point2D.ZERO)
   };
 
   /**
@@ -28,24 +29,27 @@ public class PowerUpGenerator {
   /**
    * Generates a random PowerUp with probability POWER_UP_GENERATION_CHANCE.
    *
-   * @param position Position for where to spawn the PowerUp.
+   * @param centerPosition Position for where to spawn the PowerUp.
    */
-  public void possiblyGenerateRandomPowerUp(Point2D position) {
+  public void possiblyGenerateRandomPowerUp(Point2D centerPosition) {
     boolean powerUpWillBeGenerated = rand.nextDouble() < POWER_UP_GENERATION_CHANCE;
     if (powerUpWillBeGenerated) {
-      generateRandomPowerUp(position);
+      generateRandomPowerUp(centerPosition);
     }
   }
 
   /**
    * Create a random PowerUp from the powerUpList and spawn at position.
    *
-   * @param position Point2D where to spawn the PowerUp
+   * @param centerPosition Point2D center position to spawn the PowerUp
    */
-  public void generateRandomPowerUp(Point2D position) {
+  public void generateRandomPowerUp(Point2D centerPosition) {
+    Point2D topLeftPosition = centerPosition.add(new Point2D(-POWER_UP_RECTANGLE_SIZE / 2,
+        -POWER_UP_RECTANGLE_SIZE / 2));
+
     PowerUp randomPowerUp = powerUpList[rand.nextInt(powerUpList.length)];
     PowerUp newPowerUp = randomPowerUp.copy();
-    newPowerUp.setPosition(position);
+    newPowerUp.setPosition(topLeftPosition);
     newPowerUp.setVelocity(POWER_UP_VELOCITY);
     gameWorldManager.getSpriteManager().addSprites(newPowerUp);
   }

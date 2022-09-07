@@ -51,6 +51,7 @@ public class Block extends Sprite {
       gameWorldManager.incrementScore();
       this.handleDeath(gameWorldManager);
       gameWorldManager.checkIfPlayerHasWon();
+      gameWorldManager.getPowerUpGenerator().possiblyGenerateRandomPowerUp(this.getCenter());
     }
   }
 
