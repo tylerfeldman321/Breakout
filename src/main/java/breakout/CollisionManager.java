@@ -3,10 +3,21 @@ package breakout;
 import java.util.List;
 import javafx.scene.shape.Shape;
 
+/**
+ * CollisionManager handles detecting collisions between sprites in the game, and then
+ * handling the collisions by calling the handleCollisionWith() function for the
+ * Sprite objects that have collided.
+ */
 public class CollisionManager {
   private SpriteManager spriteManager;
   private GameWorldManager gameWorldManager;
 
+  /**
+   * Constructor for collision manager.
+   *
+   * @param gameWorldManager GameWorldManager used for the game.
+   * @param spriteManager SpriteManager for the game.
+   */
   public CollisionManager(GameWorldManager gameWorldManager, SpriteManager spriteManager) {
     this.gameWorldManager = gameWorldManager;
     this.spriteManager = spriteManager;
