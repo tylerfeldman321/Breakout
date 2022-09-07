@@ -28,7 +28,7 @@ public class CollisionManager {
    * Checking for collisions between just moving sprites and other sprites saves computation
    * since two sprites that aren't moving will not be able to collide.
    */
-  protected void checkCollisions() {
+  public void checkCollisions() {
     Sprite movingSprite;
     Sprite sprite;
 
