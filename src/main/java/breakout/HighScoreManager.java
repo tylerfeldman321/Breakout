@@ -18,6 +18,11 @@ public class HighScoreManager {
   public static final String HIGH_SCORE_FILE_PATH = "highscore.txt";
   public static final int MAX_NUM_HIGH_SCORES_TO_SAVE = 10;
   private ArrayList<Integer> highScoreList = new ArrayList<>();
+  private boolean highScoresHaveBeenLoaded = false;
+
+  public HighScoreManager() {
+    tryLoadHighScores();
+  }
 
   /**
    * Add the input to the high score file. Load the high score file if possible. Add the score to
@@ -27,9 +32,18 @@ public class HighScoreManager {
    * @param score int to add to the high score file.
    */
   public void saveNewHighScores(int score) {
-    tryLoadHighScores();
+    tryToLoadHighScoresIfNotAlreadyLoaded();
     highScoreList.add(score);
     trySaveTopHighScores();
+  }
+
+  /**
+   * Try to load high scores if highScoresHaveBeenLoaded is false.
+   */
+  private void tryToLoadHighScoresIfNotAlreadyLoaded() {
+    if (!highScoresHaveBeenLoaded) {
+      tryLoadHighScores();
+    }
   }
 
   /**
@@ -39,6 +53,7 @@ public class HighScoreManager {
   private void tryLoadHighScores() {
     try {
       loadHighScores();
+      highScoresHaveBeenLoaded = true;
     } catch (IOException e) {
       System.out.println("Unable to find existing high score file at path: " +
           HIGH_SCORE_FILE_PATH + ". Will create new high score file.");
