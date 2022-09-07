@@ -187,15 +187,6 @@ public class SpriteManager {
   }
 
   /**
-   * Clears all sprites Shape objects from the viewing scene.
-   */
-  public void clearAllSpritesFromView() {
-    for (Sprite sprite : sprites) {
-      rootNode.getChildren().remove(sprite.getShape());
-    }
-  }
-
-  /**
    * Get number of balls in play.
    *
    * @return Number of balls in play.

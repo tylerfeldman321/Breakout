@@ -246,7 +246,7 @@ public class GameWorldManager {
    * Clear all sprites from view, display end message, and stop game.
    */
   public void stopGame(String message) {
-    spriteManager.clearAllSpritesFromView();
+    rootNode.getChildren().clear();
     displayGameEndMessage(message);
     this.breakout.stopGame();
   }
