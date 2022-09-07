@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.Group;
@@ -45,37 +46,26 @@ public class Breakout extends Application {
    */
   @Override
   public void start(Stage stage) {
-    myScene = setupScene(SIZE, SIZE, BACKGROUND);
-    gameWorldManager = new GameWorldManager(rootNode, myScene, this);
-
+    setupScene(SIZE, SIZE, BACKGROUND);
     stage.setScene(myScene);
     stage.setTitle(TITLE);
     stage.show();
 
-    timeline = new Timeline();
-    timeline.setCycleCount(Timeline.INDEFINITE);
-    timeline.getKeyFrames()
-        .add(new KeyFrame(Duration.seconds(SECOND_DELAY), e -> step(SECOND_DELAY)));
-    timeline.play();
+    startGame();
   }
 
   /**
-   * Set up the game. Create the root node and scene. Initialize the Player and build the level.
+   * Set up the scene. Create the root node and scene.
    * Ideas and some code taken from
    * https://coursework.cs.duke.edu/compsci307_2022fall/example_animation, written by Robert Duvall
    *
-   * @param width
-   * @param height
-   * @param background
-   * @return
+   * @param width of the scene
+   * @param height of the scene
+   * @param background Paint / color for the scene
    */
-  public Scene setupScene(double width, double height, Paint background) {
+  public void setupScene(double width, double height, Paint background) {
     rootNode = new Group();
-
     myScene = new Scene(rootNode, width, height, background);
-    myScene.setOnKeyPressed(e -> handleKeyInput(e.getCode()));
-
-    return myScene;
   }
 
   /**
@@ -93,7 +83,7 @@ public class Breakout extends Application {
    * Handles input from keyboard. Moves Player left/right if left/right arrows are pressed. Creates
    * a Ball if space bar is pressed.
    *
-   * @param code
+   * @param code KeyCode for the key that was pressed.
    */
   private void handleKeyInput(KeyCode code) {
     if (code == KeyCode.RIGHT) {
@@ -107,6 +97,21 @@ public class Breakout extends Application {
     } else if (code == KeyCode.R) {
       gameWorldManager.resetPlayerAndProjectiles();
     }
+  }
+
+  /**
+   * Start the breakout game.
+   */
+  public void startGame() {
+    gameWorldManager = new GameWorldManager(rootNode, myScene, this);
+
+    myScene.setOnKeyPressed(e -> handleKeyInput(e.getCode()));
+
+    timeline = new Timeline();
+    timeline.setCycleCount(Timeline.INDEFINITE);
+    timeline.getKeyFrames()
+        .add(new KeyFrame(Duration.seconds(SECOND_DELAY), e -> step(SECOND_DELAY)));
+    timeline.play();
   }
 
   /**
