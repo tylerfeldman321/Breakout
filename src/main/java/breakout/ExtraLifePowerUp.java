@@ -43,7 +43,7 @@ public class ExtraLifePowerUp extends PowerUp {
    * @param gameWorldManager GameWorldManager for the game.
    */
   @Override
-  public void acquirePowerup(GameWorldManager gameWorldManager) {
+  public void acquirePowerUp(GameWorldManager gameWorldManager) {
     gameWorldManager.incrementLives();
   }
 

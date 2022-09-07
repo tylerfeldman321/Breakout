@@ -24,7 +24,7 @@ public abstract class PowerUp extends Sprite {
   @Override
   public void handleCollisionWith(Sprite sprite, GameWorldManager gameWorldManager) {
     if (sprite instanceof Player) {
-      acquirePowerup(gameWorldManager);
+      acquirePowerUp(gameWorldManager);
       handleDeath(gameWorldManager);
     }
   }
@@ -34,7 +34,7 @@ public abstract class PowerUp extends Sprite {
    *
    * @param gameWorldManager GameWorldManager for the game.
    */
-  public abstract void acquirePowerup(GameWorldManager gameWorldManager);
+  public abstract void acquirePowerUp(GameWorldManager gameWorldManager);
 
   /**
    * Abstract function to create copy of the PowerUp object.
