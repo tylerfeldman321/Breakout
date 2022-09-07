@@ -1,5 +1,7 @@
-package breakout;
+package breakout.projectiles;
 
+import breakout.GameWorldManager;
+import breakout.Sprite;
 import javafx.geometry.Point2D;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;

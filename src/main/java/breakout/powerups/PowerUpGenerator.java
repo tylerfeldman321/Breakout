@@ -1,5 +1,8 @@
-package breakout;
+package breakout.powerups;
 
+import breakout.GameWorldManager;
+import breakout.powerups.ExtraLifePowerUp;
+import breakout.powerups.PowerUp;
 import java.util.Random;
 import javafx.geometry.Point2D;
 

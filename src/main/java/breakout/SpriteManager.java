@@ -1,8 +1,9 @@
 package breakout;
 
+import breakout.projectiles.Ball;
+import breakout.projectiles.Projectile;
 import java.util.HashSet;
 import javafx.scene.Group;
-import javafx.scene.shape.Shape;
 
 import java.util.ArrayList;
 import java.util.Arrays;

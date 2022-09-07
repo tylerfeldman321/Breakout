@@ -1,5 +1,7 @@
 package breakout;
 
+import breakout.powerups.PowerUpGenerator;
+import breakout.projectiles.Ball;
 import java.util.Random;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;

@@ -1,5 +1,10 @@
-package breakout;
+package breakout.projectiles;
 
+import breakout.Breakout;
+import breakout.GameWorldManager;
+import breakout.Paddle;
+import breakout.powerups.PowerUp;
+import breakout.Sprite;
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;

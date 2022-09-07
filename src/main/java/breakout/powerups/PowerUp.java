@@ -1,5 +1,8 @@
-package breakout;
+package breakout.powerups;
 
+import breakout.GameWorldManager;
+import breakout.Player;
+import breakout.Sprite;
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
