@@ -2,6 +2,7 @@ package breakout;
 
 import breakout.projectiles.Ball;
 import breakout.projectiles.Projectile;
+import breakout.staticSprites.Block;
 import java.util.HashSet;
 import javafx.scene.Group;
 

@@ -1,5 +1,7 @@
-package breakout;
+package breakout.staticSprites;
 
+import breakout.GameWorldManager;
+import breakout.Sprite;
 import breakout.projectiles.Projectile;
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;

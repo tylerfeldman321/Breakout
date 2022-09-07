@@ -1,5 +1,7 @@
 package breakout;
 
+import breakout.staticSprites.Block;
+import breakout.staticSprites.Wall;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
