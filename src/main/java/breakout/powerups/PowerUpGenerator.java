@@ -17,7 +17,8 @@ public class PowerUpGenerator {
   private GameWorldManager gameWorldManager;
   private static final Random rand = new Random();
   private static final PowerUp[] powerUpList = {
-      new ExtraLifePowerUp(POWER_UP_RECTANGLE_SIZE, Point2D.ZERO, Point2D.ZERO)
+      new ExtraLifePowerUp(POWER_UP_RECTANGLE_SIZE, Point2D.ZERO, Point2D.ZERO),
+      new ExtraBallsPowerUp(POWER_UP_RECTANGLE_SIZE, Point2D.ZERO, Point2D.ZERO)
   };
 
   /**
