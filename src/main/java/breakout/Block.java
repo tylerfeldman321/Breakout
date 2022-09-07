@@ -62,4 +62,17 @@ public class Block extends Sprite {
   public Rectangle getBoundingBoxRect() {
     return (Rectangle) this.getShape();
   }
+
+  /**
+   * Get center of the Block.
+   * TODO: make static / move to another class since this could be used by any class that
+   * has a rectangle as its internal Shape.
+   *
+   * @return Point2D for the center of the Block object.
+   */
+  private Point2D getCenter() {
+    Rectangle rectangle = getBoundingBoxRect();
+    return new Point2D(rectangle.getX() + rectangle.getWidth() / 2,
+        rectangle.getY() + rectangle.getHeight() / 2);
+  }
 }
