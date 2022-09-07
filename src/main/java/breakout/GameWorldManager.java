@@ -54,6 +54,7 @@ public class GameWorldManager {
     this.breakout = breakout;
     spriteManager = new SpriteManager(rootNode, this);
     levelGenerator = new LevelGenerator(spriteManager, myScene);
+    powerUpGenerator = new PowerUpGenerator(this);
     setupGame();
   }
 
