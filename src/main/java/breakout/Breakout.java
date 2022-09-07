@@ -83,7 +83,7 @@ public class Breakout extends Application {
    * Show the splash screen.
    */
   public void startSplashScreen() {
-    rootNode.getChildren().clear();
+    clearScene();
     Text text = new Text(myScene.getWidth()/2, myScene.getHeight()/2, "Welcome to Breakout!");
     rootNode.getChildren().add(text);
     myScene.setOnKeyPressed(e -> stopUserInputAndStartGame());
@@ -122,7 +122,7 @@ public class Breakout extends Application {
    * Start the breakout game.
    */
   public void startGame() {
-    rootNode.getChildren().clear();
+    clearScene();
     gameWorldManager = new GameWorldManager(rootNode, myScene, this);
 
     myScene.setOnKeyPressed(e -> handleKeyInput(e.getCode()));
@@ -150,6 +150,13 @@ public class Breakout extends Application {
   private void stopUserInput() {
     myScene.setOnKeyPressed(null);
     myScene.setOnMouseClicked(null);
+  }
+
+  /**
+   * Clear the scene of all nodes.
+   */
+  public void clearScene() {
+    rootNode.getChildren().clear();
   }
 
 }
