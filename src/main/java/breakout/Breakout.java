@@ -104,9 +104,12 @@ public class Breakout extends Application {
     Text paddleBounceExplanationText = new Text(myScene.getWidth()/2 - 130,
         myScene.getHeight()/2 + 50, "- Use the paddle to keep the ball in");
 
+    Text startGameExplanationText = new Text(myScene.getWidth()/2 - 130,
+        myScene.getHeight()*3/4, "Press a key or click the mouse to start the game");
+
     rootNode.getChildren().addAll(welcomeText, instructionsSectionText, spaceExplanationText,
-        arrowKeysControlsText, blockDestroyingText,
-        gameWinConditionsText, paddleBounceExplanationText);
+        arrowKeysControlsText, blockDestroyingText, gameWinConditionsText,
+        paddleBounceExplanationText, startGameExplanationText);
 
     myScene.setOnKeyPressed(e -> startGame());
     myScene.setOnMouseClicked(e -> startGame());
