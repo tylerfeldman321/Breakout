@@ -25,6 +25,20 @@ public class HighScoreManager {
   }
 
   /**
+   * Get the current high score from the high score file.
+   *
+   * @return
+   */
+  public int getHighScore() {
+    tryToLoadHighScoresIfNotAlreadyLoaded();
+    if (highScoreList.isEmpty()) {
+      return 0;
+    } else {
+      return Collections.max(highScoreList);
+    }
+  }
+
+  /**
    * Add the input to the high score file. Load the high score file if possible. Add the score to
    * the list of high scores. Save the top MAX_NUM_HIGH_SCORES_TO_SAVE to the file saved at
    * HIGH_SCORE_FILE_PATH.
