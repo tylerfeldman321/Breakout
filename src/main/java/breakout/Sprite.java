@@ -45,8 +45,8 @@ public abstract class Sprite {
    */
   public Sprite(Shape shape) {
     this.shape = shape;
-    this.position = new Point2D(0, 0);
-    this.velocity = new Point2D(0, 0);
+    this.position = Point2D.ZERO;
+    this.velocity = Point2D.ZERO;
   }
 
   /**
