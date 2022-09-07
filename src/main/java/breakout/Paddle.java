@@ -27,7 +27,8 @@ public class Paddle extends Sprite {
    * @param position Top left position of the Paddle.
    * @param color    Color for the fill of the Rectangle.
    */
-  public Paddle(double width, double height, Point2D position, Color color, boolean isAMovingSprite) {
+  public Paddle(double width, double height, Point2D position, Color color,
+      boolean isAMovingSprite) {
     super(new Rectangle(width, height, color),
         position,
         new Point2D(0, 0), isAMovingSprite);

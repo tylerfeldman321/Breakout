@@ -9,9 +9,9 @@ import java.util.Collections;
 import java.util.Scanner;
 
 /**
- * HighScoreManager loads and saves the file that keeps track of high scores.
- * The high score file is located at HIGH_SCORE_FILE_PATH. The top MAX_NUM_HIGH_SCORES_TO_SAVE
- * scores are saved into the file in descending order. 
+ * HighScoreManager loads and saves the file that keeps track of high scores. The high score file is
+ * located at HIGH_SCORE_FILE_PATH. The top MAX_NUM_HIGH_SCORES_TO_SAVE scores are saved into the
+ * file in descending order.
  */
 public class HighScoreManager {
 
@@ -20,9 +20,9 @@ public class HighScoreManager {
   private ArrayList<Integer> highScoreList = new ArrayList<>();
 
   /**
-   * Add the input to the high score file.
-   * Load the high score file if possible. Add the score to the list of high scores. Save
-   * the top MAX_NUM_HIGH_SCORES_TO_SAVE to the file saved at HIGH_SCORE_FILE_PATH.
+   * Add the input to the high score file. Load the high score file if possible. Add the score to
+   * the list of high scores. Save the top MAX_NUM_HIGH_SCORES_TO_SAVE to the file saved at
+   * HIGH_SCORE_FILE_PATH.
    *
    * @param score int to add to the high score file.
    */
@@ -33,14 +33,13 @@ public class HighScoreManager {
   }
 
   /**
-   * Try to load the high scores from HIGH_SCORE_FILE_PATH. If loadHighScores() throws
-   * exception, print message to user.
+   * Try to load the high scores from HIGH_SCORE_FILE_PATH. If loadHighScores() throws exception,
+   * print message to user.
    */
   private void tryLoadHighScores() {
     try {
       loadHighScores();
-    }
-    catch (IOException e) {
+    } catch (IOException e) {
       System.out.println("Unable to find existing high score file at path: " +
           HIGH_SCORE_FILE_PATH + ". Will create new high score file.");
     }
@@ -73,8 +72,7 @@ public class HighScoreManager {
   private void trySaveTopHighScores() {
     try {
       saveTopHighScores();
-    }
-    catch (IOException e) {
+    } catch (IOException e) {
       System.out.println("Unable to save high score file.");
     }
   }

@@ -57,12 +57,11 @@ public class Breakout extends Application {
   }
 
   /**
-   * Set up the scene. Create the root node and scene.
-   * Ideas and some code taken from
+   * Set up the scene. Create the root node and scene. Ideas and some code taken from
    * https://coursework.cs.duke.edu/compsci307_2022fall/example_animation, written by Robert Duvall
    *
-   * @param width of the scene
-   * @param height of the scene
+   * @param width      of the scene
+   * @param height     of the scene
    * @param background Paint / color for the scene
    */
   public void setupScene(double width, double height, Paint background) {
@@ -86,26 +85,26 @@ public class Breakout extends Application {
    */
   public void startSplashScreen() {
     clearScene();
-    Text welcomeText = new Text(myScene.getWidth()/2 - 100,
-        myScene.getHeight()/4, "Welcome to Breakout!");
+    Text welcomeText = new Text(myScene.getWidth() / 2 - 100,
+        myScene.getHeight() / 4, "Welcome to Breakout!");
     welcomeText.setFont(new Font(20));
     welcomeText.setTextAlignment(TextAlignment.CENTER);
 
-    Text instructionsSectionText = new Text(myScene.getWidth()/2 - 130,
-        myScene.getHeight()/2 - 50, "Instructions:");
-    Text spaceExplanationText = new Text(myScene.getWidth()/2 - 130,
-        myScene.getHeight()/2 - 30, "- Use the Space bar to create a new ball");
-    Text arrowKeysControlsText = new Text(myScene.getWidth()/2 - 130,
-        myScene.getHeight()/2 - 10, "- Use the Left / Right Arrow Keys to Move");
-    Text blockDestroyingText = new Text(myScene.getWidth()/2 - 130,
-        myScene.getHeight()/2 + 10, "- The ball will destroy blocks it collides with");
-    Text gameWinConditionsText = new Text(myScene.getWidth()/2 - 130,
-        myScene.getHeight()/2 + 30, "- Clear all blocks from the screen to win");
-    Text paddleBounceExplanationText = new Text(myScene.getWidth()/2 - 130,
-        myScene.getHeight()/2 + 50, "- Use the paddle to keep the ball in");
+    Text instructionsSectionText = new Text(myScene.getWidth() / 2 - 130,
+        myScene.getHeight() / 2 - 50, "Instructions:");
+    Text spaceExplanationText = new Text(myScene.getWidth() / 2 - 130,
+        myScene.getHeight() / 2 - 30, "- Use the Space bar to create a new ball");
+    Text arrowKeysControlsText = new Text(myScene.getWidth() / 2 - 130,
+        myScene.getHeight() / 2 - 10, "- Use the Left / Right Arrow Keys to Move");
+    Text blockDestroyingText = new Text(myScene.getWidth() / 2 - 130,
+        myScene.getHeight() / 2 + 10, "- The ball will destroy blocks it collides with");
+    Text gameWinConditionsText = new Text(myScene.getWidth() / 2 - 130,
+        myScene.getHeight() / 2 + 30, "- Clear all blocks from the screen to win");
+    Text paddleBounceExplanationText = new Text(myScene.getWidth() / 2 - 130,
+        myScene.getHeight() / 2 + 50, "- Use the paddle to keep the ball in");
 
-    Text startGameExplanationText = new Text(myScene.getWidth()/2 - 130,
-        myScene.getHeight()*3/4, "Press a key or click the mouse to start the game");
+    Text startGameExplanationText = new Text(myScene.getWidth() / 2 - 130,
+        myScene.getHeight() * 3 / 4, "Press a key or click the mouse to start the game");
 
     rootNode.getChildren().addAll(welcomeText, instructionsSectionText, spaceExplanationText,
         arrowKeysControlsText, blockDestroyingText, gameWinConditionsText,
@@ -154,8 +153,8 @@ public class Breakout extends Application {
   }
 
   /**
-   * Stop the game.
-   * This includes stopping the timeline, stopping user input, and saving the high score.
+   * Stop the game. This includes stopping the timeline, stopping user input, and saving the high
+   * score.
    */
   public void stopGame() {
     timeline.stop();

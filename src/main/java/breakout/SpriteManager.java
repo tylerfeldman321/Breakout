@@ -225,8 +225,9 @@ public class SpriteManager {
    */
   public void clearAllProjectiles() {
     for (Sprite movingSprite : movingSprites) {
-      if (movingSprite instanceof Projectile)
+      if (movingSprite instanceof Projectile) {
         removeSprites(movingSprite);
+      }
     }
   }
 }
