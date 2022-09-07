@@ -86,16 +86,8 @@ public class Breakout extends Application {
     clearScene();
     Text text = new Text(myScene.getWidth()/2, myScene.getHeight()/2, "Welcome to Breakout!");
     rootNode.getChildren().add(text);
-    myScene.setOnKeyPressed(e -> stopUserInputAndStartGame());
-    myScene.setOnMouseClicked(e -> stopUserInputAndStartGame());
-  }
-
-  /**
-   * Clear user input functions and start game.
-   */
-  private void stopUserInputAndStartGame() {
-    stopUserInput();
-    startGame();
+    myScene.setOnKeyPressed(e -> startGame());
+    myScene.setOnMouseClicked(e -> startGame());
   }
 
   /**
@@ -123,6 +115,8 @@ public class Breakout extends Application {
    */
   public void startGame() {
     clearScene();
+    stopUserInput();
+
     gameWorldManager = new GameWorldManager(rootNode, myScene, this);
 
     myScene.setOnKeyPressed(e -> handleKeyInput(e.getCode()));
