@@ -54,7 +54,7 @@ public class CollisionManager {
    * @param spriteB Projectile object that has collided with sprite.
    * @return Whether a collision has occurred.
    */
-  public boolean spritesHaveCollided(Sprite spriteA, Sprite spriteB) {
+  private boolean spritesHaveCollided(Sprite spriteA, Sprite spriteB) {
     if (spriteA == spriteB) {
       return false;
     }
@@ -74,7 +74,7 @@ public class CollisionManager {
    * @param spriteB Second Sprite object.
    * @return Whether the two Sprite objects have collided.
    */
-  public boolean isIntersecting(Sprite spriteA, Sprite spriteB) {
+  private boolean isIntersecting(Sprite spriteA, Sprite spriteB) {
     Shape intersection = Shape.intersect(spriteA.getShape(), spriteB.getShape());
     return (intersection.getBoundsInLocal().getWidth() != -1);  // From example_animation
   }
