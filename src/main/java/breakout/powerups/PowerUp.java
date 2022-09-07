@@ -19,6 +19,28 @@ public abstract class PowerUp extends Sprite {
   }
 
   /**
+   * Sets the shape position.
+   *
+   * @param position Point2D top left position.
+   */
+  @Override
+  public void setShapePosition(Point2D position) {
+    Rectangle rectangle = (Rectangle) this.getShape();
+    rectangle.setX(position.getX());
+    rectangle.setY(position.getY());
+  }
+
+  /**
+   * Gets the bounding box Rectangle for collisions.
+   *
+   * @return
+   */
+  @Override
+  public Rectangle getBoundingBoxRect() {
+    return (Rectangle) this.getShape();
+  }
+
+  /**
    * Handles collision with another object. This results in acquiring the powerup and then the death
    * of the powerup.
    *

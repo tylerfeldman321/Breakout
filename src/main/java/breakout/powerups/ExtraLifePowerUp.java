@@ -3,7 +3,6 @@ package breakout.powerups;
 import breakout.GameWorldManager;
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 /**
  * PowerUp that gives the player an extra life.
@@ -27,18 +26,6 @@ public class ExtraLifePowerUp extends PowerUp {
   }
 
   /**
-   * Sets the shape position.
-   *
-   * @param position Point2D top left position.
-   */
-  @Override
-  public void setShapePosition(Point2D position) {
-    Rectangle rectangle = (Rectangle) this.getShape();
-    rectangle.setX(position.getX());
-    rectangle.setY(position.getY());
-  }
-
-  /**
    * Handles acquiring the powerup. Increments the lives for the player.
    *
    * @param gameWorldManager GameWorldManager for the game.
@@ -46,16 +33,6 @@ public class ExtraLifePowerUp extends PowerUp {
   @Override
   public void acquirePowerUp(GameWorldManager gameWorldManager) {
     gameWorldManager.incrementLives();
-  }
-
-  /**
-   * Gets the bounding box Rectangle for collisions.
-   *
-   * @return
-   */
-  @Override
-  public Rectangle getBoundingBoxRect() {
-    return (Rectangle) this.getShape();
   }
 
   @Override
