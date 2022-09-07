@@ -11,6 +11,7 @@ import javafx.scene.shape.Rectangle;
  * @see Powerup
  */
 public class ExtraLifePowerup extends Powerup {
+  private double length;
 
   /**
    * Constructor for ExtraLifePowerup. The shape is a square with side lengths equal to Length.
@@ -21,6 +22,7 @@ public class ExtraLifePowerup extends Powerup {
    */
   public ExtraLifePowerup(double length, Point2D position, Point2D velocity) {
     super(new Rectangle(length, length, Color.GREEN), position, velocity);
+    this.length = length;
   }
 
   /**
@@ -53,5 +55,10 @@ public class ExtraLifePowerup extends Powerup {
   @Override
   public Rectangle getBoundingBoxRect() {
     return (Rectangle) this.getShape();
+  }
+
+  @Override
+  public Powerup copy() {
+    return new ExtraLifePowerup(this.length, this.getPosition(), this.getVelocity());
   }
 }

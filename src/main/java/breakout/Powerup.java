@@ -35,4 +35,11 @@ public abstract class Powerup extends Sprite {
    * @param gameWorldManager GameWorldManager for the game.
    */
   public abstract void acquirePowerup(GameWorldManager gameWorldManager);
+
+  /**
+   * Abstract function to create copy of the Powerup object.
+   *
+   * @return
+   */
+  public abstract Powerup copy();
 }
