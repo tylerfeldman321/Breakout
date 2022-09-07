@@ -69,8 +69,6 @@ public class HighScoreManager {
       loadHighScores();
       highScoresHaveBeenLoaded = true;
     } catch (IOException e) {
-      System.out.println("Unable to find existing high score file at path: " +
-          HIGH_SCORE_FILE_PATH + ". Will create new high score file.");
     }
   }
 
@@ -102,7 +100,6 @@ public class HighScoreManager {
     try {
       saveTopHighScores();
     } catch (IOException e) {
-      System.out.println("Unable to save high score file.");
     }
   }
 
