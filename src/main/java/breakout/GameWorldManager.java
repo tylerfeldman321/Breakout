@@ -290,9 +290,19 @@ public class GameWorldManager {
    * @return double angle to launch the ball.
    */
   public double getRandomBallLaunchAngle() {
+    return getRandomAngleInRange(MIN_BALL_LAUNCH_ANGLE, MAX_BALL_LAUNCH_ANGLE);
+  }
+
+  /**
+   * Get random angle uniformly distributed within range provided
+   *
+   * @param minAngle Lower range for angle.
+   * @param maxAngle Upper range for angles.
+   * @return Angle uniformly distributed between the range provided.
+   */
+  public double getRandomAngleInRange(double minAngle, double maxAngle) {
     Random randomAngleGenerator = new Random();
-    double launchAngle = MIN_BALL_LAUNCH_ANGLE + randomAngleGenerator.nextDouble() *
-        (MAX_BALL_LAUNCH_ANGLE - MIN_BALL_LAUNCH_ANGLE);
+    double launchAngle = minAngle + randomAngleGenerator.nextDouble() * (maxAngle - minAngle);
     return launchAngle;
   }
 
