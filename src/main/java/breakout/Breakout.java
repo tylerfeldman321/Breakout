@@ -6,7 +6,9 @@ import javafx.application.Application;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.Group;
@@ -84,8 +86,28 @@ public class Breakout extends Application {
    */
   public void startSplashScreen() {
     clearScene();
-    Text text = new Text(myScene.getWidth()/2, myScene.getHeight()/2, "Welcome to Breakout!");
-    rootNode.getChildren().add(text);
+    Text welcomeText = new Text(myScene.getWidth()/2 - 100,
+        myScene.getHeight()/4, "Welcome to Breakout!");
+    welcomeText.setFont(new Font(20));
+    welcomeText.setTextAlignment(TextAlignment.CENTER);
+
+    Text instructionsSectionText = new Text(myScene.getWidth()/2 - 130,
+        myScene.getHeight()/2 - 50, "Instructions:");
+    Text spaceExplanationText = new Text(myScene.getWidth()/2 - 130,
+        myScene.getHeight()/2 - 30, "- Use the Space bar to create a new ball");
+    Text arrowKeysControlsText = new Text(myScene.getWidth()/2 - 130,
+        myScene.getHeight()/2 - 10, "- Use the Left / Right Arrow Keys to Move");
+    Text blockDestroyingText = new Text(myScene.getWidth()/2 - 130,
+        myScene.getHeight()/2 + 10, "- The ball will destroy blocks it collides with");
+    Text gameWinConditionsText = new Text(myScene.getWidth()/2 - 130,
+        myScene.getHeight()/2 + 30, "- Clear all blocks from the screen to win");
+    Text paddleBounceExplanationText = new Text(myScene.getWidth()/2 - 130,
+        myScene.getHeight()/2 + 50, "- Use the paddle to keep the ball in");
+
+    rootNode.getChildren().addAll(welcomeText, instructionsSectionText, spaceExplanationText,
+        arrowKeysControlsText, blockDestroyingText,
+        gameWinConditionsText, paddleBounceExplanationText);
+
     myScene.setOnKeyPressed(e -> startGame());
     myScene.setOnMouseClicked(e -> startGame());
   }
