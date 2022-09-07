@@ -5,22 +5,22 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 /**
- * Powerup that gives the player an extra life.
+ * PowerUp that gives the player an extra life.
  *
  * @author Tyler Feldman
- * @see Powerup
+ * @see PowerUp
  */
-public class ExtraLifePowerup extends Powerup {
+public class ExtraLifePowerUp extends PowerUp {
   private double length;
 
   /**
-   * Constructor for ExtraLifePowerup. The shape is a square with side lengths equal to Length.
+   * Constructor for ExtraLifePowerUp. The shape is a square with side lengths equal to Length.
    *
    * @param length   Length of the square.
    * @param position Point2D top left position of the powerup.
    * @param velocity Point2D initial velocity of the powerup.
    */
-  public ExtraLifePowerup(double length, Point2D position, Point2D velocity) {
+  public ExtraLifePowerUp(double length, Point2D position, Point2D velocity) {
     super(new Rectangle(length, length, Color.GREEN), position, velocity);
     this.length = length;
   }
@@ -58,7 +58,7 @@ public class ExtraLifePowerup extends Powerup {
   }
 
   @Override
-  public Powerup copy() {
-    return new ExtraLifePowerup(this.length, this.getPosition(), this.getVelocity());
+  public PowerUp copy() {
+    return new ExtraLifePowerUp(this.length, this.getPosition(), this.getVelocity());
   }
 }

@@ -4,13 +4,13 @@ import javafx.geometry.Point2D;
 import javafx.scene.shape.Shape;
 
 /**
- * Abstract class for any powerup.
+ * Abstract class for any PowerUp.
  *
  * @author Tyler Feldman
  */
-public abstract class Powerup extends Sprite {
+public abstract class PowerUp extends Sprite {
 
-  public Powerup(Shape shape, Point2D position, Point2D velocity) {
+  public PowerUp(Shape shape, Point2D position, Point2D velocity) {
     super(shape, position, velocity, true);
   }
 
@@ -37,9 +37,9 @@ public abstract class Powerup extends Sprite {
   public abstract void acquirePowerup(GameWorldManager gameWorldManager);
 
   /**
-   * Abstract function to create copy of the Powerup object.
+   * Abstract function to create copy of the PowerUp object.
    *
-   * @return
+   * @return PowerUp copy of this PowerUp object.
    */
-  public abstract Powerup copy();
+  public abstract PowerUp copy();
 }
