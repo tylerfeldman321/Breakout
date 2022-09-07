@@ -14,8 +14,11 @@ import javafx.scene.shape.Rectangle;
  */
 public abstract class PowerUp extends Sprite {
 
-  public PowerUp(double width, double height, Color color, Point2D position, Point2D velocity) {
-    super(new Rectangle(width, height, color), position, velocity, true);
+  private double sideLength;
+
+  public PowerUp(double sideLength, Color color, Point2D position, Point2D velocity) {
+    super(new Rectangle(sideLength, sideLength, color), position, velocity, true);
+    this.sideLength = sideLength;
   }
 
   /**
@@ -68,4 +71,13 @@ public abstract class PowerUp extends Sprite {
    * @return PowerUp copy of this PowerUp object.
    */
   public abstract PowerUp copy();
+
+  /**
+   * Return side length of the internal Rectangle Shape.
+   *
+   * @return sideLength of the Rectangle.
+   */
+  public double getSideLength() {
+    return this.sideLength;
+  }
 }
